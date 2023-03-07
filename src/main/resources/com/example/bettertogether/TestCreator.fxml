@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.bettertogether.TestCreator"
+            prefHeight="400.0" prefWidth="600.0"
+            fx:id="background" alignment="center">
+    <stylesheets>
+        <URL value="@css/TestCreatorStyle/CreatorMainStyle.css"/>
+    </stylesheets>
+
+    <top>
+        <TextField fx:id="testTitleLabel" promptText="Pick a title."/>
+    </top>
+    <center>
+        <ListView fx:id="questionList">
+            <Label text="label"/>
+        </ListView>
+    </center>
+    <bottom>
+        <Button id="submitButton" text="Submit"/>
+    </bottom>
+
+</BorderPane>

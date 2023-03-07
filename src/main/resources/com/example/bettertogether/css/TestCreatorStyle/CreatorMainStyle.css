@@ -1,0 +1,19 @@
+#background {
+    -fx-backGround-color: #B7E6E6;
+}
+
+#testTitleLabel {
+    -fx-padding: 10 50 10 50;
+    -fx-background-color: #B7E6E6;
+    -fx-font-size: 26px;
+}
+
+#submitButton {
+    -fx-padding: 10 50 10 50;
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -min-width: 100px;
+    -min-height: 50px;
+
+}

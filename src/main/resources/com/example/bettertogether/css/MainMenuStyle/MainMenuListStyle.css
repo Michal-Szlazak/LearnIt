@@ -1,0 +1,62 @@
+#testListGridPane {
+    -fx-min-height: 350px;
+    -fx-min-width: 400px;
+    -fx-pref-width: 600px;
+
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+
+}
+
+#testListGridPane > Label {
+    -fx-pref-width: 1000px;
+    -fx-pref-height: 50px;
+    -fx-font-size: 24px;
+}
+
+#testListGridPane > ListView {
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: black;
+    -fx-padding: 5 5 5 5;
+}
+
+#testListGridPane > HBox > Button {
+    -fx-min-width: 50px;
+
+    -fx-background-color: #B7E6E6;
+    -fx-background-radius: 10px;
+    -fx-border-color: black;
+    -fx-border-radius: 10px
+}
+
+#testListGridPane > HBox > Button:hover {
+    -fx-background-color: #D7FFFF;
+    -fx-cursor: hand;
+}
+
+#testListGridPane > HBox > Button:pressed {
+        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,2), 2, 0, 3, 3);
+}
+
+#testListGridPane > ListView .list-cell{
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-padding: 5 5 2 5;
+}
+
+#testListGridPane > ListView .list-cell > Label{
+    -fx-border-color: black;
+    -fx-border-radius: 5px;
+    -fx-background-radius:5px;
+    -fx-background-color: white;
+    -fx-font-size: 16px;
+    -fx-max-width: 1000px;
+    -fx-padding: 0 0 0 10;
+}
+
+#testListGridPane > ListView .list-cell > Label:hover{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 3, 0, 3, 3);
+    -fx-cursor: hand;
+}

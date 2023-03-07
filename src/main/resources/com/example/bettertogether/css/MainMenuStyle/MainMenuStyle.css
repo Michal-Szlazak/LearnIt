@@ -1,0 +1,18 @@
+#background {
+    -fx-background-color: #B7E6E6;
+}
+
+#titlePane {
+    -fx-min-height: 50px;
+    -fx-min-width: 400px;
+    -fx-max-width: 300px;
+
+    -fx-border-color: black;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
+
+#titleLabel {
+    -fx-font-family: 'Allerta Stencil';
+    -fx-font-size: 26px;
+}
