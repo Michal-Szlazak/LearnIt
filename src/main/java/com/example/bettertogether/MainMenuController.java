@@ -26,8 +26,6 @@ public class MainMenuController {
     private Parent root;
     public void initialize() {
         Label label = new Label();
-        label.getStylesheets().add("com/example/bettertogether/css/MainMenuStyle/MainMenuListStyle.css");
-        label.textProperty().set("firstTest");
         testListView.getItems().add(label);
         testListView.getItems().add(new Label("Second test"));
         testListView.getItems().add(new Label("Third test"));

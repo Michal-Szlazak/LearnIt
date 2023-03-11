@@ -3,9 +3,16 @@
 }
 
 #testTitleLabel {
-    -fx-padding: 10 50 10 50;
-    -fx-background-color: #B7E6E6;
+
+    -fx-background-color: white;
     -fx-font-size: 26px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: black;
+
+    -fx-max-width: 500px;
+    -fx-max-height: 50px;
+
 }
 
 #submitButton {
@@ -13,7 +20,12 @@
     -fx-background-color: white;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
+    -fx-border-color: black;
     -min-width: 100px;
     -min-height: 50px;
+}
 
+#submitButton:hover {
+     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+     -fx-cursor: hand;
 }

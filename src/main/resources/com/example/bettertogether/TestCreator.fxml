@@ -3,25 +3,48 @@
 <?import javafx.scene.layout.*?>
 
 <?import java.net.URL?>
-<BorderPane xmlns="http://javafx.com/javafx"
+<?import javafx.geometry.Insets?>
+<GridPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.bettertogether.TestCreator"
             prefHeight="400.0" prefWidth="600.0"
-            fx:id="background" alignment="center">
+            fx:id="background" alignment="CENTER">
     <stylesheets>
         <URL value="@css/TestCreatorStyle/CreatorMainStyle.css"/>
+        <URL value="@css/TestCreatorStyle/CreatorQuestionListStyle.css"/>
     </stylesheets>
+    <padding>
+        <Insets left="50" right="50"/>
+    </padding>
+        <HBox id="titlePane" BorderPane.alignment="CENTER" alignment="CENTER" GridPane.rowIndex="0">
+            <padding>
+                <Insets bottom="10" top="10" left="50" right="50"/>
+            </padding>
+            <TextField fx:id="testTitleLabel" promptText="Pick a title." BorderPane.alignment="CENTER"/>
+        </HBox>
 
-    <top>
-        <TextField fx:id="testTitleLabel" promptText="Pick a title."/>
-    </top>
-    <center>
-        <ListView fx:id="questionList">
-            <Label text="label"/>
-        </ListView>
-    </center>
-    <bottom>
-        <Button id="submitButton" text="Submit"/>
-    </bottom>
 
-</BorderPane>
+        <GridPane id="questionListGridPane" vgap="10" BorderPane.alignment="CENTER" GridPane.rowIndex="1">
+            <padding>
+                <Insets top="10" bottom="10" left="10" right="10"/>
+            </padding>
+            <Label text="Here are your questions" GridPane.rowIndex="0" alignment="CENTER"/>
+            <ListView fx:id="questionListView" GridPane.rowIndex="1">
+                <Label text="fxml label"/>
+                <Label text="fxml label"/>
+            </ListView>
+            <HBox GridPane.rowIndex="2" alignment="BASELINE_RIGHT" spacing="10">
+                <Button id="addQuestionButton" text="Add"/>
+                <Button id="editQuestionButton" text="Edit"/>
+                <Button id="deleteQuestionButton" text="Delete"/>
+            </HBox>
+        </GridPane>
+
+        <HBox id="titlePane" BorderPane.alignment="TOP_CENTER" alignment="CENTER" GridPane.rowIndex="2">
+            <padding>
+                <Insets bottom="10" top="10" left="50" right="50"/>
+            </padding>
+            <Button id="submitButton" text="Submit" BorderPane.alignment="CENTER"/>
+        </HBox>
+
+</GridPane>
