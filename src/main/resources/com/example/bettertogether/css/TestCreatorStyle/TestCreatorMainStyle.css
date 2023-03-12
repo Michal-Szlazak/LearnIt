@@ -15,7 +15,7 @@
 
 }
 
-#submitButton {
+#submitButton, #cancelButton {
     -fx-padding: 10 50 10 50;
     -fx-background-color: white;
     -fx-background-radius: 10px;
@@ -25,7 +25,12 @@
     -min-height: 50px;
 }
 
-#submitButton:hover {
+#cancelButton:hover, #submitButton:hover {
      -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
      -fx-cursor: hand;
+}
+
+#cancelButton:pressed, #submitButton:pressed {
+     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,2), 10, 0, 0, 0);
+     -fx-background-color: lightgrey;
 }

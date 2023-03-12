@@ -33,9 +33,14 @@ public class MainMenuController {
     }
 
     public void goToTestCreator(ActionEvent event) throws IOException {
+        double width;
+        double height;
+
         root = FXMLLoader.load(getClass().getResource("TestCreator.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root, 700, 500);
+        width = stage.getScene().getWidth();
+        height = stage.getScene().getHeight();
+        scene = new Scene(root, width, height);
         stage.setScene(scene);
         stage.show();
     }

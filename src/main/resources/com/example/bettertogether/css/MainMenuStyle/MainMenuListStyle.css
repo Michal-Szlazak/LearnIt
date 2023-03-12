@@ -1,7 +1,6 @@
 #testListGridPane {
     -fx-min-height: 350px;
     -fx-min-width: 400px;
-    -fx-pref-width: 600px;
 
     -fx-background-color: white;
     -fx-background-radius: 10px;

@@ -6,12 +6,11 @@
 <?import javafx.geometry.Insets?>
 <GridPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.bettertogether.TestCreator"
-            prefHeight="400.0" prefWidth="600.0"
-            fx:id="background" alignment="CENTER">
+            fx:controller="com.example.bettertogether.TestCreatorController"
+            id="background" alignment="CENTER">
     <stylesheets>
-        <URL value="@css/TestCreatorStyle/CreatorMainStyle.css"/>
-        <URL value="@css/TestCreatorStyle/CreatorQuestionListStyle.css"/>
+        <URL value="@css/TestCreatorStyle/TestCreatorMainStyle.css"/>
+        <URL value="@css/TestCreatorStyle/TestCreatorQuestionListStyle.css"/>
     </stylesheets>
     <padding>
         <Insets left="50" right="50"/>
@@ -20,7 +19,7 @@
             <padding>
                 <Insets bottom="10" top="10" left="50" right="50"/>
             </padding>
-            <TextField fx:id="testTitleLabel" promptText="Pick a title." BorderPane.alignment="CENTER"/>
+            <TextField id="testTitleLabel" promptText="Pick a title." BorderPane.alignment="CENTER"/>
         </HBox>
 
 
@@ -29,21 +28,22 @@
                 <Insets top="10" bottom="10" left="10" right="10"/>
             </padding>
             <Label text="Here are your questions" GridPane.rowIndex="0" alignment="CENTER"/>
-            <ListView fx:id="questionListView" GridPane.rowIndex="1">
+            <ListView id="questionListView" GridPane.rowIndex="1">
                 <Label text="fxml label"/>
                 <Label text="fxml label"/>
             </ListView>
             <HBox GridPane.rowIndex="2" alignment="BASELINE_RIGHT" spacing="10">
-                <Button id="addQuestionButton" text="Add"/>
+                <Button id="addQuestionButton" text="Add" onAction="#goToQuestionCreator"/>
                 <Button id="editQuestionButton" text="Edit"/>
                 <Button id="deleteQuestionButton" text="Delete"/>
             </HBox>
         </GridPane>
 
-        <HBox id="titlePane" BorderPane.alignment="TOP_CENTER" alignment="CENTER" GridPane.rowIndex="2">
+        <HBox id="titlePane" BorderPane.alignment="TOP_CENTER" alignment="CENTER" GridPane.rowIndex="2" spacing="10">
             <padding>
                 <Insets bottom="10" top="10" left="50" right="50"/>
             </padding>
+            <Button id="cancelButton" text="Cancel" BorderPane.alignment="CENTER" onAction="#goToMainMenu"/>
             <Button id="submitButton" text="Submit" BorderPane.alignment="CENTER"/>
         </HBox>
 

@@ -11,8 +11,8 @@ public class MainMenu extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader root = new FXMLLoader(MainMenuController.class.getResource("main-menu.fxml"));
-        Scene scene = new Scene(root.load(), 700, 500);
+        FXMLLoader root = new FXMLLoader(MainMenuController.class.getResource("MainMenu.fxml"));
+        Scene scene = new Scene(root.load());
 
         stage.setTitle("BetterTogether");
         stage.setScene(scene);

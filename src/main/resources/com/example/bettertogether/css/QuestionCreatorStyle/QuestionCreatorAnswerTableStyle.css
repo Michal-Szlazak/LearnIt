@@ -1,0 +1,29 @@
+#answersVBox {
+    -fx-min-height: 350px;
+    -fx-min-width: 400px;
+    -fx-max-height: 600px;
+    -fx-max-width: 800px;
+
+
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+
+}
+
+.table-view {
+    -fx-background-radius: 10px;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: transparent;
+    -fx-background-radius: 10px;
+}
+
+.table-view .filler {
+    -fx-background-radius: 10px;
+}
+
+.table-column {
+    -fx-background-radius: 10px;
+}
