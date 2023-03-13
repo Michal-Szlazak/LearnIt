@@ -30,7 +30,7 @@
             <Insets top="10" bottom="10" left="10" right="10"/>
         </padding>
         <Label text="Options" GridPane.rowIndex="0" alignment="CENTER"/>
-        <Button id="createNewTestButton" text="Create a new test" GridPane.rowIndex="1"
+        <Button fx:id="createNewTestButton" text="Create a new test" GridPane.rowIndex="1"
                 onAction="#goToTestCreator"/>
         <Button id="downloadNewTestButton" text="Download a new test" GridPane.rowIndex="2"/>
     </GridPane>
@@ -40,8 +40,6 @@
         </padding>
         <Label text="Here are your tests" GridPane.rowIndex="0" alignment="CENTER"/>
         <ListView fx:id="testListView" GridPane.rowIndex="1">
-            <Label text="fxml label"/>
-            <Label text="fxml label"/>
         </ListView>
         <HBox GridPane.rowIndex="2" alignment="BASELINE_RIGHT" spacing="10">
             <Button id="doTestButton" text="Do"/>

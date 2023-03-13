@@ -7,7 +7,7 @@ public class Test {
 
     private List<Question> questions;
 
-    Test() {
+    public Test() {
         questions = new ArrayList<>();
     }
 

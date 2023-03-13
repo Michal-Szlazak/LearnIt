@@ -1,5 +1,7 @@
 package com.example.bettertogether;
 
+import com.example.bettertogether.Test.Test;
+import com.example.bettertogether.Test.TestModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -14,6 +16,13 @@ public class TestCreatorController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    private TestModel testModel;
+
+    public TestCreatorController() {
+        testModel = new TestModel();
+        System.out.println(testModel.getTest().toString());
+    }
 
     public void goToMainMenu(ActionEvent event) throws IOException {
         double height;
@@ -32,7 +41,9 @@ public class TestCreatorController {
         double height;
         double width;
 
-        root = FXMLLoader.load(getClass().getResource("QuestionCreator.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("QuestionCreator.fxml"));
+        Parent root = loader.load();
+        ((QuestionCreatorController)loader.getController()).setTestModel(testModel);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         height = stage.getScene().getHeight();
         width = stage.getScene().getWidth();
@@ -40,6 +51,5 @@ public class TestCreatorController {
         stage.setScene(scene);
         stage.show();
     }
-
 
 }

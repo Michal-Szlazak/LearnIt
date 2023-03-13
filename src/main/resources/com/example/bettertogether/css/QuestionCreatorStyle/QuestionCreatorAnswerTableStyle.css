@@ -20,10 +20,32 @@
     -fx-background-radius: 10px;
 }
 
-.table-view .filler {
-    -fx-background-radius: 10px;
-}
-
 .table-column {
     -fx-background-radius: 10px;
+    -fx-background-color: white;
+    -fx-border-radius: 10px;
+    -fx-border-color: black;
+    -fx-padding: 5 5 5 5;
+}
+
+.table-view .filler {
+    -fx-background-color: transparent;
+}
+
+#answerButtons > .button {
+    -fx-min-width: 50px;
+
+    -fx-background-color: #B7E6E6;
+    -fx-background-radius: 10px;
+    -fx-border-color: black;
+    -fx-border-radius: 10px;
+}
+
+#answerButtons > .button:hover {
+    -fx-background-color: #D7FFFF;
+    -fx-cursor: hand;
+}
+
+#answerButtons > .button:pressed {
+        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,2), 2, 0, 3, 3);
 }

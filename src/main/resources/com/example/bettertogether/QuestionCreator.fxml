@@ -25,7 +25,12 @@
         <TextField id="questionTextField" promptText="Your question"/>
     </VBox>
 
-    <VBox id="answersVBox" spacing="10">
+    <VBox id="answersVBox" spacing="5">
+
+        <padding>
+            <Insets left="5" right="5" top="5" bottom="5"/>
+        </padding>
+
         <TableView fx:id="tableView">
             <columns>
                 <TableColumn id="answerId" text="id" prefWidth="${tableView.width * 0.1}"/>
@@ -33,14 +38,14 @@
                 <TableColumn id="isItCorrect" text="is correct" prefWidth="${tableView.width * 0.1}"/>
             </columns>
         </TableView>
-        <HBox id="answersButtons" alignment="BASELINE_RIGHT" spacing="10">
+        <HBox id="answerButtons" alignment="CENTER_RIGHT" spacing="10">
             <Button id="addQuestionButton" text="Add"/>
             <Button id="editQuestionButton" text="Edit"/>
             <Button id="deleteQuestionButton" text="Delete"/>
         </HBox>
     </VBox>
     <HBox id="questionHBox" alignment="CENTER" spacing="10">
-        <Button id="cancelButton" text="cancel"/>
+        <Button id="cancelButton" text="cancel" onAction="#goToTestCreator"/>
         <Button id="addNewQuestionButton" text="Add question"/>
     </HBox>
 </VBox>
