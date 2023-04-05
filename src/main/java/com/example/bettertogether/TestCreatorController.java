@@ -1,6 +1,5 @@
 package com.example.bettertogether;
-
-import com.example.bettertogether.Test.Test;
+;
 import com.example.bettertogether.Test.TestModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class TestCreatorController {
 
@@ -28,7 +28,7 @@ public class TestCreatorController {
         double height;
         double width;
 
-        root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         height = stage.getScene().getHeight();
         width = stage.getScene().getWidth();
