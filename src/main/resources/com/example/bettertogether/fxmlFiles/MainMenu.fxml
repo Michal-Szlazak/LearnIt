@@ -11,9 +11,9 @@
 <GridPane id="background" fx:controller="com.example.bettertogether.MainMenuController"
           xmlns:fx="http://javafx.com/fxml" alignment="CENTER" hgap="15" vgap="20">
     <stylesheets>
-        <URL value="@css/MainMenuStyle/MainMenuListStyle.css"/>
-        <URL value="@css/MainMenuStyle/MainMenuStyle.css"/>
-        <URL value="@css/MainMenuStyle/MainMenuOptionsStyle.css"/>
+        <URL value="@../css/MainMenuStyle/MainMenuListStyle.css"/>
+        <URL value="@../css/MainMenuStyle/MainMenuStyle.css"/>
+        <URL value="@../css/MainMenuStyle/MainMenuOptionsStyle.css"/>
     </stylesheets>
     <padding>
         <Insets top="10" bottom="50" left="10" right="10"/>
@@ -39,8 +39,7 @@
             <Insets top="10" bottom="10" left="10" right="10"/>
         </padding>
         <Label text="Here are your tests" GridPane.rowIndex="0" alignment="CENTER"/>
-        <ListView fx:id="testListView" GridPane.rowIndex="1">
-        </ListView>
+        <ListView fx:id="testListView" GridPane.rowIndex="1"/>
         <HBox GridPane.rowIndex="2" alignment="BASELINE_RIGHT" spacing="10">
             <Button id="doTestButton" text="Do"/>
             <Button id="editTestButton" text="Edit"/>
