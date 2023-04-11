@@ -1,10 +1,14 @@
 package com.example.bettertogether.Test;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 public class Question {
 
+    @JsonProperty
     private String question;
+    @JsonProperty
     private List<Answer> answers;
     public Question(String question) {
         this.question = question;

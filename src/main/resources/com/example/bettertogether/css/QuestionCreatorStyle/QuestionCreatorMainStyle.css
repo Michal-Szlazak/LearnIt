@@ -8,26 +8,21 @@
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
     -fx-border-color: black;
-
     -fx-max-width: 300px;
     -fx-max-height: 100px;
-
 }
 
 #questionTextField {
-    -fx-background-color: white;
     -fx-font-size: 18px;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
     -fx-border-color: black;
-
     -fx-min-width: 100px;
-
     -fx-max-width: 500px;
     -fx-max-height: 50px;
 }
 
-#addNewQuestionButton, #cancelButton {
+#addNewQuestionButton, #cancelButton, #editQuestionButton {
     -fx-padding: 10 50 10 50;
     -fx-background-color: white;
     -fx-background-radius: 10px;
@@ -37,12 +32,12 @@
     -fx-min-height: 50px;
 }
 
-#cancelButton:hover, #addNewQuestionButton:hover {
+#cancelButton:hover, #addNewQuestionButton:hover, #editQuestionButton:hover {
      -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
      -fx-cursor: hand;
 }
 
-#cancelButton:pressed, #addNewQuestionButton:pressed {
+#cancelButton:pressed, #addNewQuestionButton:pressed, #editQuestionButton:pressed {
      -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,2), 10, 0, 0, 0);
      -fx-background-color: lightgrey;
 }

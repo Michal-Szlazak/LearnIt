@@ -5,6 +5,7 @@ module com.example.bettertogether {
     requires org.controlsfx.controls;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
+    requires com.fasterxml.jackson.databind;
 
     opens com.example.bettertogether to javafx.fxml;
     exports com.example.bettertogether;
