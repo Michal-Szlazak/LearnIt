@@ -6,13 +6,22 @@ public class Question {
 
     private String question;
     private List<Answer> answers;
-    private QuestionType questionType;
-    Question(String question, QuestionType questionType) {
+    public Question(String question) {
         this.question = question;
-        this.questionType = questionType;
+    }
+
+    @Override
+    public String toString() {
+        return question;
     }
 
     public void addAnswers(List<Answer> answers) {
         this.answers = answers;
+    }
+    public String getQuestion() {
+        return question;
+    }
+    public List<Answer> getAnswers() {
+        return answers;
     }
 }
