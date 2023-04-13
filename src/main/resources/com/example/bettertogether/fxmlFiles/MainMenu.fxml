@@ -43,7 +43,7 @@
         <HBox GridPane.rowIndex="2" alignment="BASELINE_RIGHT" spacing="10">
             <Button id="doTestButton" text="Do"/>
             <Button id="editTestButton" text="Edit"/>
-            <Button id="deleteTestButton" text="Delete"/>
+            <Button fx:id="deleteTestButton" text="Delete"/>
         </HBox>
     </GridPane>
 

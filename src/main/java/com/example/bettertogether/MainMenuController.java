@@ -1,13 +1,17 @@
 package com.example.bettertogether;
 
 import com.example.bettertogether.MainMenuGUI.TestLoader;
+import com.example.bettertogether.MainMenuGUI.TestRemover;
 import com.example.bettertogether.Test.Test;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
@@ -22,9 +26,21 @@ public class MainMenuController {
     private Test test;
     @FXML
     private ListView<String> testListView;
+    @FXML
+    private Button deleteTestButton;
 
     public void initialize() {
-        new TestLoader(testListView);
+
+        TestLoader testLoader = new TestLoader(testListView);
+        testLoader.load();
+
+        TestRemover testRemover = new TestRemover();
+        deleteTestButton.setOnAction(event -> {
+            String testName = testListView.getSelectionModel().getSelectedItem();
+            if(testRemover.removeTest(testName + ".json")) {
+                testLoader.load();
+            }
+        });
     }
 
     public void goToTestCreator(ActionEvent event) throws IOException {
