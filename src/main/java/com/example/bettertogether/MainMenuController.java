@@ -24,6 +24,8 @@ public class MainMenuController {
     private ListView<String> testListView;
     @FXML
     private Button deleteTestButton;
+    @FXML
+    private Button editTestButton;
 
     public void initialize() {
 
@@ -36,6 +38,17 @@ public class MainMenuController {
             String testName = testListView.getSelectionModel().getSelectedItem();
             if(TestRemover.removeTest(testName + ".json")) {
                 testLoader.load();
+            }
+        });
+
+        editTestButton.setOnAction(event -> {
+            JsonToTestMapper mapper = new JsonToTestMapper();
+            test = mapper.createTestFromJson(
+                    testListView.getSelectionModel().getSelectedItem() + ".json");
+            try {
+                goToTestCreator(event);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         });
     }
