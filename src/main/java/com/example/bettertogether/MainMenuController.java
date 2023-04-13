@@ -3,9 +3,7 @@ package com.example.bettertogether;
 import com.example.bettertogether.MainMenuGUI.TestLoader;
 import com.example.bettertogether.MainMenuGUI.TestRemover;
 import com.example.bettertogether.Test.Test;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -14,9 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-
 
 public class MainMenuController {
     private Stage stage;
@@ -34,10 +30,11 @@ public class MainMenuController {
         TestLoader testLoader = new TestLoader(testListView);
         testLoader.load();
 
-        TestRemover testRemover = new TestRemover();
+        test = new Test();
+
         deleteTestButton.setOnAction(event -> {
             String testName = testListView.getSelectionModel().getSelectedItem();
-            if(testRemover.removeTest(testName + ".json")) {
+            if(TestRemover.removeTest(testName + ".json")) {
                 testLoader.load();
             }
         });
@@ -46,7 +43,6 @@ public class MainMenuController {
     public void goToTestCreator(ActionEvent event) throws IOException {
         double width;
         double height;
-        test = new Test();
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource(FolderPaths.pathToFXMLFolder + "TestCreator.fxml"));
         root = loader.load();
