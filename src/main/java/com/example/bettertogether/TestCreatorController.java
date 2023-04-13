@@ -39,7 +39,7 @@ public class TestCreatorController {
         cancelButton.setOnAction(this::goToMainMenu);
         submitButton.setOnAction(event -> {
             uploadTestName();
-            JsonConverter jsonConverter = new JsonConverter();
+            TestToJsonMapper jsonConverter = new TestToJsonMapper();
             jsonConverter.convertToJsonConverter(test);
             goToMainMenu(event);
         });
