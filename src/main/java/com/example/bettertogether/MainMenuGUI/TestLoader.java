@@ -26,6 +26,8 @@ public class TestLoader {
         for(File file : testFiles) {
             fileNames[index++] = file.getName().replace(".json", "");
         }
+
+        testListView.getItems().clear();
         testListView.getItems().addAll(fileNames);
     }
 
