@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class JsonConverter {
+public class TestToJsonMapper {
     public void convertToJsonConverter(Test test) {
         ObjectMapper ow = new ObjectMapper();
         try {
