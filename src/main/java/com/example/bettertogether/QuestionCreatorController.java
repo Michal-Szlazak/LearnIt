@@ -42,9 +42,9 @@ public class QuestionCreatorController {
         deleteAnswerButton.setOnAction(event -> answerTableView.deleteAnswer());
 
         AnswersGetter answersGetter = new AnswersGetter(tableView);
-        QuestionLoader questionLoader = new QuestionLoader(questionTextField);
+        QuestionNameLoader questionNameLoader = new QuestionNameLoader(questionTextField);
         addNewQuestionButton.setOnAction(event -> {
-            Question question = questionLoader.createQuestion(answersGetter.loadAnswers());
+            Question question = questionNameLoader.createQuestion(answersGetter.loadAnswers());
             test.addNewQuestion(question);
             try {
                 goToTestCreator(event);
