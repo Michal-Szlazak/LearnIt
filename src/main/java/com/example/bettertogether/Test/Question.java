@@ -6,14 +6,9 @@ import java.util.List;
 
 public class Question {
 
-    @JsonProperty
-    private String question;
-    @JsonProperty
-    private List<Answer> answers;
-    public Question(String question) {
-        this.question = question;
-    }
 
+    private String question;
+    private List<Answer> answers;
     @Override
     public String toString() {
         return question;
@@ -27,5 +22,14 @@ public class Question {
     }
     public List<Answer> getAnswers() {
         return answers;
+    }
+
+    @JsonProperty("question")
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+    @JsonProperty("answers")
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
     }
 }

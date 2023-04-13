@@ -11,10 +11,6 @@ public class Answer {
     private Label id;
     private TextField answer;
     private CheckBox isCorrect;
-
-    public void setId(String id) {
-        this.id = new Label(id);
-    }
     @JsonIgnore
     public Label getIdLabel() {
         return id;
@@ -38,6 +34,16 @@ public class Answer {
 
     public String getAnswer() {
         return answer.getText();
+    }
+
+    public void setId(String id) {
+        this.id = new Label(id);
+    }
+    public void setAnswer(String answer) {
+        this.answer.setText(answer);
+    }
+    public void setIsCorrect(boolean isCorrect) {
+        this.isCorrect.setSelected(isCorrect);
     }
 
     public Answer() {

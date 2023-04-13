@@ -15,7 +15,8 @@ public class QuestionLoader {
     }
 
     public Question createQuestion(List<Answer> answerList) {
-        Question question = new Question(questionTextField.getText());
+        Question question = new Question();
+        question.setQuestion(questionTextField.getText());
         question.addAnswers(answerList);
         return question;
     }
