@@ -1,7 +1,6 @@
 package com.example.bettertogether.QuestionCreatorGUI;
 
 import com.example.bettertogether.Test.Answer;
-import com.example.bettertogether.Test.Question;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
