@@ -1,5 +1,6 @@
-package com.example.bettertogether;
+package com.example.bettertogether.JsonMappers;
 
+import com.example.bettertogether.FolderPaths;
 import com.example.bettertogether.Test.Test;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
