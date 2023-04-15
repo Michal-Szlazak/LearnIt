@@ -6,11 +6,11 @@ import javafx.scene.control.TextField;
 
 import java.util.List;
 
-public class QuestionNameLoader {
+public class QuestionCreator {
 
     private final TextField questionTextField;
 
-    public QuestionNameLoader(TextField question) {
+    public QuestionCreator(TextField question) {
         this.questionTextField = question;
     }
 
@@ -20,4 +20,6 @@ public class QuestionNameLoader {
         question.addAnswers(answerList);
         return question;
     }
+
+
 }
