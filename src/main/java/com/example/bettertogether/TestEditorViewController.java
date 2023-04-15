@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 
-public class TestCreatorController {
+public class TestEditorViewController {
 
     private Stage stage;
     private Scene scene;
@@ -36,20 +36,12 @@ public class TestCreatorController {
     @FXML
     private Button cancelButton;
     @FXML
-    private Button submitButton;
-    @FXML
     private Button saveChanges;
     private Test test;
 
     public void initialize() {
         TestListView testListView = new TestListView(questionListView);
         cancelButton.setOnAction(this::goToMainMenu);
-        submitButton.setOnAction(event -> {
-            uploadTestName();
-            TestToJsonMapper jsonConverter = new TestToJsonMapper();
-            jsonConverter.convertToJsonConverter(test);
-            goToMainMenu(event);
-        });
         saveChanges.setOnAction(event -> {
             File oldFile = new File(FolderPaths.pathToTestFolder + test.getTestName() + ".json");
             oldFile.delete();
@@ -107,6 +99,7 @@ public class TestCreatorController {
             throw new RuntimeException(e);
         }
         ((QuestionCreatorController)loader.getController()).setTestModel(test);
+        ((QuestionCreatorController)loader.getController()).loadQuestionCreatorWindowFromTestEdit();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         height = stage.getScene().getHeight();
         width = stage.getScene().getWidth();
@@ -130,6 +123,8 @@ public class TestCreatorController {
         ((QuestionEditorViewController)loader.getController()).setTest(test);
         ((QuestionEditorViewController)loader.getController()).setQuestion(
                 questionListView.getSelectionModel().getSelectedItem());
+        ((QuestionEditorViewController)loader.getController()).loadAnswerEditWindowFromTestEdit(
+                questionListView.getSelectionModel().getSelectedItem());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         height = stage.getScene().getHeight();
         width = stage.getScene().getWidth();
@@ -137,7 +132,6 @@ public class TestCreatorController {
         stage.setScene(scene);
         stage.show();
     }
-
     private void uploadTestName() {
         test.setTestName(testNameTextField.getText());
     }

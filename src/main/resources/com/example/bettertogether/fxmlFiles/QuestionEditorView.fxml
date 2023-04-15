@@ -7,7 +7,7 @@
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       id="background"
-      fx:controller="com.example.bettertogether.QuestionCreatorController"
+      fx:controller="com.example.bettertogether.QuestionEditorViewController"
       prefHeight="400.0" prefWidth="600.0" alignment="CENTER" spacing="20">
 
     <stylesheets>
@@ -39,6 +39,6 @@
     </VBox>
     <HBox id="questionHBox" alignment="CENTER" spacing="10">
         <Button fx:id="cancelButton" text="cancel"/>
-        <Button fx:id="addNewQuestionToTestButton" text="Add question"/>
+        <Button fx:id="saveEditedQuestionButton" text="Save changes"/>
     </HBox>
 </VBox>

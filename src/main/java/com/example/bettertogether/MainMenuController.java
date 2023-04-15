@@ -1,5 +1,6 @@
 package com.example.bettertogether;
 
+import com.example.bettertogether.JsonMappers.JsonToTestMapper;
 import com.example.bettertogether.MainMenuGUI.TestLoader;
 import com.example.bettertogether.MainMenuGUI.TestRemover;
 import com.example.bettertogether.Test.Test;
@@ -45,11 +46,7 @@ public class MainMenuController {
             JsonToTestMapper mapper = new JsonToTestMapper();
             test = mapper.createTestFromJson(
                     testListView.getSelectionModel().getSelectedItem() + ".json");
-            try {
-                goToTestCreator(event);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            goToTestEditorView(event);
         });
     }
 
@@ -68,4 +65,22 @@ public class MainMenuController {
         stage.show();
     }
 
+    public void goToTestEditorView(ActionEvent event) {
+        double width;
+        double height;
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(FolderPaths.pathToFXMLFolder + "TestEditorView.fxml"));
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        ((TestEditorViewController)loader.getController()).setTestModel(test);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        width = stage.getScene().getWidth();
+        height = stage.getScene().getHeight();
+        scene = new Scene(root, width, height);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
