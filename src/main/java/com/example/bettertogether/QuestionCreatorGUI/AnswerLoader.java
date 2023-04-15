@@ -9,16 +9,18 @@ import javafx.scene.text.Text;
 public class AnswerLoader {
 
     private final TextField questionTextField;
-    private final TableView<Answer> answerTableView;
+    private final AnswerTableView answerTableView;
 
-    public AnswerLoader(TextField questionTextField, TableView<Answer> answerTableView) {
+    public AnswerLoader(TextField questionTextField, AnswerTableView answerTableView) {
         this.questionTextField = questionTextField;
         this.answerTableView = answerTableView;
     }
 
     public void loadQuestion(Question question) {
         questionTextField.setText(question.toString());
-        answerTableView.getItems().addAll(question.getAnswers());
+        for(Answer answer : question.getAnswers()) {
+            answerTableView.addAnswer(answer);
+        }
     }
 
 }
