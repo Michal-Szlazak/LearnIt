@@ -22,7 +22,7 @@
     -fx-max-height: 50px;
 }
 
-#addNewQuestionButton, #cancelButton, #editQuestionButton {
+#addNewQuestionButton, #cancelButton, #saveEditedQuestionButton, #addNewQuestionToTestButton {
     -fx-padding: 10 50 10 50;
     -fx-background-color: white;
     -fx-background-radius: 10px;
@@ -32,12 +32,12 @@
     -fx-min-height: 50px;
 }
 
-#cancelButton:hover, #addNewQuestionButton:hover, #editQuestionButton:hover {
+#cancelButton:hover, #addNewQuestionButton:hover, #saveEditedQuestionButton:hover, #addNewQuestionToTestButton:hover {
      -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
      -fx-cursor: hand;
 }
 
-#cancelButton:pressed, #addNewQuestionButton:pressed, #editQuestionButton:pressed {
+#cancelButton:pressed, #addNewQuestionButton:pressed, #saveEditedQuestionButton:pressed, #addNewQuestionToTestButton:pressed {
      -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,2), 10, 0, 0, 0);
      -fx-background-color: lightgrey;
 }
