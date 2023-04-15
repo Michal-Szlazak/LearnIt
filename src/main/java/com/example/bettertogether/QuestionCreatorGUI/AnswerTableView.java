@@ -50,6 +50,11 @@ public class AnswerTableView implements IAnswerTableView{
         tableView.getItems().add(answer);
     }
 
+    public void addAnswer(Answer answer) {
+        id++;
+        tableView.getItems().add(answer);
+    }
+
     public void deleteAnswer() {
         Answer answer = tableView.getSelectionModel().getSelectedItem();
         if(answer == null) {
