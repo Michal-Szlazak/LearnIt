@@ -24,6 +24,8 @@ public class MainMenuController {
     @FXML
     private ListView<String> testListView;
     @FXML
+    private Button doTestButton;
+    @FXML
     private Button deleteTestButton;
     @FXML
     private Button editTestButton;
@@ -35,7 +37,17 @@ public class MainMenuController {
 
         test = new Test();
 
+        doTestButton.setOnAction(event -> {
+            if(testListView.getSelectionModel().getSelectedItem() == null) {
+                return;
+            }
+            goToTestMakerSettings(event);
+        });
+
         deleteTestButton.setOnAction(event -> {
+            if(testListView.getSelectionModel().getSelectedItem() == null) {
+                return;
+            }
             String testName = testListView.getSelectionModel().getSelectedItem();
             if(TestRemover.removeTest(testName + ".json")) {
                 testLoader.load();
@@ -43,6 +55,9 @@ public class MainMenuController {
         });
 
         editTestButton.setOnAction(event -> {
+            if(testListView.getSelectionModel().getSelectedItem() == null) {
+                return;
+            }
             JsonToTestMapper mapper = new JsonToTestMapper();
             test = mapper.createTestFromJson(
                     testListView.getSelectionModel().getSelectedItem() + ".json");
@@ -50,12 +65,36 @@ public class MainMenuController {
         });
     }
 
-    public void goToTestCreator(ActionEvent event) throws IOException {
+    public void goToTestMakerSettings(ActionEvent event) {
+        double width;
+        double height;
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(
+                FolderPaths.pathToFXMLFolder + "TestMakerSettingsView.fxml"));
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        ((TestMakerSettingsViewController)loader.getController()).setTest(test);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        width = stage.getScene().getWidth();
+        height = stage.getScene().getHeight();
+        scene = new Scene(root, width, height);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void goToTestCreator(ActionEvent event) {
         double width;
         double height;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource(FolderPaths.pathToFXMLFolder + "TestCreator.fxml"));
-        root = loader.load();
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         ((TestCreatorController)loader.getController()).setTestModel(test);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         width = stage.getScene().getWidth();

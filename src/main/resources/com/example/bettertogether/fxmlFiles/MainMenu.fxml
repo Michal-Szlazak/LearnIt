@@ -41,7 +41,7 @@
         <Label text="Here are your tests" GridPane.rowIndex="0" alignment="CENTER"/>
         <ListView fx:id="testListView" GridPane.rowIndex="1"/>
         <HBox GridPane.rowIndex="2" alignment="BASELINE_RIGHT" spacing="10">
-            <Button id="doTestButton" text="Do"/>
+            <Button fx:id="doTestButton" text="Do"/>
             <Button fx:id="editTestButton" text="Edit"/>
             <Button fx:id="deleteTestButton" text="Delete"/>
         </HBox>
