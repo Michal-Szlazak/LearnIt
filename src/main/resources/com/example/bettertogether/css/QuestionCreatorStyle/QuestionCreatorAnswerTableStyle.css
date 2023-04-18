@@ -45,8 +45,6 @@
     -fx-background-color: white;
     -fx-border-radius: 10px;
     -fx-border-color: black;
-    -fx-border-insets: 2;
-    -fx-background-insets: 2;
 }
 
 .table-view .table-cell{

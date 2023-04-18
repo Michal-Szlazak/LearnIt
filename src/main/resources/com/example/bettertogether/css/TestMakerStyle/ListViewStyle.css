@@ -1,0 +1,36 @@
+.list-view {
+    -fx-background-radius: 10px;
+    -fx-background-color: white;
+    -fx-padding: 0 0 0 0;
+    -fx-pref-width: 1000;
+}
+
+.list-view .list-cell:empty{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.list-view .list-cell{
+    -fx-border-color: black;
+    -fx-border-radius: 5px;
+    -fx-background-radius:5px;
+    -fx-background-color: white;
+    -fx-font-size: 16px;
+    -fx-max-width: 1000px;
+    -fx-padding: 5 5 5 5;
+    -fx-border-insets: 5;
+    -fx-background-insets: 5;
+}
+
+.list-view .list-cell:selected{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,2), 2, 0, 3, 3);
+    -fx-background-border: 10px;
+    -fx-text-background-color: black;
+}
+
+.list-view .list-cell:filled:hover{
+    -fx-background-color: #D7FFFF;
+    -fx-border-color: black;
+    -fx-border-radius: 5;
+    -fx-cursor: hand;
+}

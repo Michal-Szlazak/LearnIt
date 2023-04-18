@@ -71,3 +71,26 @@
     -fx-border-radius: 5;
     -fx-cursor: hand;
 }
+
+#answerIdLabel {
+    -fx-background-color: #ffcccc;
+    -fx-border-insets: 5;
+    -fx-background-insets: 5;
+    -fx-border-color: black;
+    -fx-border-radius: 5px;
+    -fx-background-radius:5px;
+    -fx-alignment: center;
+
+    -fx-max-width: 50;
+    -fx-min-width: 50;
+    -fx-max-height: 50;
+    -fx-min-height: 50;
+}
+
+#answerTextLabel {
+    -fx-background-color: red;
+    -fx-border-insets: 5;
+    -fx-background-insets: 5;
+    -fx-alignment: center;
+    -fx-max-width: 100;
+}

@@ -41,6 +41,9 @@ public class MainMenuController {
             if(testListView.getSelectionModel().getSelectedItem() == null) {
                 return;
             }
+            JsonToTestMapper mapper = new JsonToTestMapper();
+            test = mapper.createTestFromJson(
+                    testListView.getSelectionModel().getSelectedItem() + ".json");
             goToTestMakerSettings(event);
         });
 

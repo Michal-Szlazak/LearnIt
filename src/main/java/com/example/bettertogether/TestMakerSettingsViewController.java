@@ -88,6 +88,7 @@ public class TestMakerSettingsViewController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        ((TestMakerTestViewController)loader.getController()).setTest(test);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         width = stage.getScene().getWidth();
         height = stage.getScene().getHeight();

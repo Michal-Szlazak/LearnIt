@@ -12,7 +12,7 @@
 
     <stylesheets>
         <URL value="@../css/TestMakerStyle/TestMakerTestViewStyle.css"/>
-        <URL value="@../css/TestMakerStyle/AnswerTableStyle.css"/>
+        <URL value="@../css/TestMakerStyle/ListViewStyle.css"/>
     </stylesheets>
 
     <padding>
@@ -25,19 +25,19 @@
 
     <VBox id="questionVBox" spacing="5" alignment="CENTER">
 
-        <Label id="questionLabel" text="Default question text?" alignment="CENTER"/>
+        <Label fx:id="questionLabel" text="Default question text?" alignment="CENTER"/>
 
         <padding>
             <Insets left="20" right="20" top="5" bottom="5"/>
         </padding>
 
-        <TableView fx:id="answerTableView"/>
+        <ListView fx:id="answerListView"/>
 
         <HBox id="answerButtons" alignment="CENTER" spacing="10">
             <Button id="submitButton" text="Submit"/>
         </HBox>
     </VBox>
     <HBox id="questionHBox" alignment="CENTER" spacing="10">
-        <Button id="cancelButton" text="cancel"/>
+        <Button fx:id="cancelButton" text="cancel"/>
     </HBox>
 </VBox>
