@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      id="background"
+      fx:controller="com.example.bettertogether.TestMakerTestViewController"
+      prefHeight="400.0" prefWidth="600.0" alignment="CENTER" spacing="20">
+
+    <stylesheets>
+        <URL value="@../css/TestMakerStyle/TestMakerTestViewStyle.css"/>
+        <URL value="@../css/TestMakerStyle/AnswerTableStyle.css"/>
+    </stylesheets>
+
+    <padding>
+        <Insets left="50" right="50" top="50" bottom="50"/>
+    </padding>
+
+    <VBox spacing="20" alignment="CENTER">
+        <Label id="testLabel" text="Default test text" alignment="CENTER"/>
+    </VBox>
+
+    <VBox id="questionVBox" spacing="5" alignment="CENTER">
+
+        <Label id="questionLabel" text="Default question text?" alignment="CENTER"/>
+
+        <padding>
+            <Insets left="20" right="20" top="5" bottom="5"/>
+        </padding>
+
+        <TableView fx:id="answerTableView"/>
+
+        <HBox id="answerButtons" alignment="CENTER" spacing="10">
+            <Button id="submitButton" text="Submit"/>
+        </HBox>
+    </VBox>
+    <HBox id="questionHBox" alignment="CENTER" spacing="10">
+        <Button id="cancelButton" text="cancel"/>
+    </HBox>
+</VBox>
