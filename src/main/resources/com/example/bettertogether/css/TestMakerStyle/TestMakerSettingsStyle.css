@@ -1,0 +1,81 @@
+#background {
+    -fx-backGround-color: #B7E6E6;
+}
+
+#testSettingLabel {
+    -fx-background-color: white;
+    -fx-font-size: 30px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: black;
+    -fx-max-width: 300px;
+    -fx-max-height: 100px;
+}
+
+#testChoiceBox {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: black;
+    -fx-pref-height: 300px;
+    -fx-max-width: 500px;
+}
+
+#cancelButton {
+    -fx-padding: 10 50 10 50;
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: black;
+    -fx-min-width: 200px;
+    -fx-min-height: 50px;
+}
+
+#cancelButton:hover {
+     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+     -fx-cursor: hand;
+}
+
+#cancelButton:pressed {
+     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,2), 10, 0, 0, 0);
+     -fx-background-color: lightgrey;
+}
+
+#quickTestVBox, #fullTestVBox{
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: black;
+    -fx-border-insets: 5;
+    -fx-background-insets: 5;
+    -fx-padding: 5 5 5 5;
+    -fx-max-height: 100px;
+}
+
+#quickTestLabel, #fullTestLabel {
+    -fx-font-size: 20px;
+}
+
+#quickTestInformationButton, #fullTestInformationButton {
+    -fx-background-image: url("informationIcon.png");
+    -fx-max-width: 20;
+    -fx-max-height: 20;
+    -fx-min-width: 20;
+    -fx-min-height: 20;
+    -fx-background-size: 20 20;
+    -fx-background-radius: 10;
+}
+
+#takeQuickTestButton, #takeFullTestButton {
+    -fx-padding: 1 5 1 5;
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: black;
+    -fx-font-size: 12px;
+}
+
+.button:hover {
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, black, 0, 0, 2, 2);
+}
