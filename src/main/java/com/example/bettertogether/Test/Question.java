@@ -9,11 +9,11 @@ public class Question {
 
     private String question;
     private List<Answer> answers;
+    private QuestionStatistics questionStatistics = new QuestionStatistics();
     @Override
     public String toString() {
         return question;
     }
-
     public void addAnswers(List<Answer> answers) {
         this.answers = answers;
     }
@@ -23,6 +23,9 @@ public class Question {
     public List<Answer> getAnswers() {
         return answers;
     }
+    public QuestionStatistics getQuestionStatistics() {
+        return questionStatistics;
+    }
 
     @JsonProperty("question")
     public void setQuestion(String question) {
@@ -31,5 +34,9 @@ public class Question {
     @JsonProperty("answers")
     public void setAnswers(List<Answer> answers) {
         this.answers = answers;
+    }
+    @JsonProperty("questionStatistics")
+    public void setQuestionStatistics(QuestionStatistics questionStatistics) {
+        this.questionStatistics = questionStatistics;
     }
 }
