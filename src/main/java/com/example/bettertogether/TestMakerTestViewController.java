@@ -3,6 +3,7 @@ package com.example.bettertogether;
 import com.example.bettertogether.Test.Answer;
 import com.example.bettertogether.Test.Question;
 import com.example.bettertogether.Test.Test;
+import com.example.bettertogether.TestMakerGUI.TestMakerListView;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,41 +24,29 @@ public class TestMakerTestViewController {
 
     private static int questionNumber = 0;
     private Test test;
+    private TestMakerListView testMakerListView;
     @FXML
     private ListView<HBox> answerListView;
+    @FXML
+    private Label questionIdLabel;
     @FXML
     private Label questionLabel;
     @FXML
     private Button cancelButton;
     public void initialize() {
+        questionNumber = 0;
+        testMakerListView = new TestMakerListView(answerListView);
         cancelButton.setOnAction(this::goToTestSettings);
-
-        Platform.runLater(() -> loadQuestion(answerListView));
+        Platform.runLater(this::loadQuestion);
     }
     public void setTest(Test test) {
         this.test = test;
     }
-    public void loadQuestion(ListView<HBox> listView) {
-
+    public void loadQuestion() {
         Question currentQuestion = test.getQuestions().get(questionNumber++);
+        questionIdLabel.setText("Question " + questionNumber);
         questionLabel.setText(currentQuestion.getQuestion());
-
-        for(Answer answer : currentQuestion.getAnswers()) {
-            HBox answerHBox = new HBox();
-            answerHBox.setAlignment(Pos.CENTER_LEFT);
-            answerHBox.getStylesheets().add(
-                    String.valueOf(getClass().getResource(FolderPaths.pathToCssFiles + "TestCreatorStyle/TestCreatorQuestionListStyle.css"))
-            );
-            Label answerId = new Label(answer.getId());
-            answerId.setId("answerIdLabel");
-            Label answerText = new Label(answer.getAnswer());
-            answerText.setId("answerTextLabel");
-            answerText.setWrapText(true);
-            answerHBox.getChildren().add(0, answerId);
-            answerHBox.getChildren().add(1, answerText);
-            listView.getItems().add(answerHBox);
-        }
-
+        testMakerListView.loadAnswers(currentQuestion.getAnswers());
     }
     public void goToTestSettings(ActionEvent event) {
         double width;
