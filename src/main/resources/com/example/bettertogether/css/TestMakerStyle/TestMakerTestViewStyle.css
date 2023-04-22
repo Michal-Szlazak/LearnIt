@@ -12,9 +12,23 @@
     -fx-max-height: 100px;
 }
 
+#questionHeaderVBox {
+    -fx-border-insets: 10;
+    -fx-background-insets: 10;
+}
+
+#questionIdLabel {
+    -fx-font-size: 25px;
+    -fx-border-color: transparent;
+    -fx-background-radius: 10;
+    -fx-background-color: #ccccff;
+    -fx-padding: 5 20 5 20;
+}
+
 #questionLabel {
     -fx-font-size: 20px;
     -fx-border-color: transparent;
+    -fx-border-color: black;
 }
 
 #questionVBox {
@@ -84,3 +98,5 @@
 #cancelButton:pressed {
     -fx-background-color: #8c8c8c;
 }
+
+

@@ -25,7 +25,10 @@
 
     <VBox id="questionVBox" spacing="5" alignment="CENTER">
 
-        <Label fx:id="questionLabel" text="Default question text?" alignment="CENTER"/>
+        <VBox id="questionHeaderVBox" alignment="CENTER" spacing="10">
+            <Label fx:id="questionIdLabel" alignment="CENTER"/>
+            <Label fx:id="questionLabel" text="Default question text?" alignment="CENTER"/>
+        </VBox>
 
         <padding>
             <Insets left="20" right="20" top="5" bottom="5"/>
@@ -37,7 +40,7 @@
             <Button id="submitButton" text="Submit"/>
         </HBox>
     </VBox>
-    <HBox id="questionHBox" alignment="CENTER" spacing="10">
+    <HBox alignment="CENTER" spacing="10">
         <Button fx:id="cancelButton" text="cancel"/>
     </HBox>
 </VBox>
