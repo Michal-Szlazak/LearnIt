@@ -1,7 +1,7 @@
 package com.example.bettertogether.TestMakerGUI;
 
 import com.example.bettertogether.FolderPaths;
-import com.example.bettertogether.Test.Answer;
+import com.example.bettertogether.Test.AnswerRow;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -26,12 +26,12 @@ public class TestMakerListView {
         });
     }
 
-    public void loadAnswers(List<Answer> answerList) {
+    public void loadAnswers(List<AnswerRow> answerRowList) {
 
-        for(Answer answer : answerList) {
+        for(AnswerRow answerRow : answerRowList) {
             HBox answerHBox = craeteNewHBox();
-            Label answerId = createAnswerIdLabel(answer);
-            Label answerText = createAnswerTextLabel(answer);
+            Label answerId = createAnswerIdLabel(answerRow);
+            Label answerText = createAnswerTextLabel(answerRow);
             answerHBox.getChildren().add(0, answerId);
             answerHBox.getChildren().add(1, answerText);
             listView.getItems().add(answerHBox);
@@ -48,16 +48,16 @@ public class TestMakerListView {
         return answerHBox;
     }
 
-    private Label createAnswerIdLabel(Answer answer) {
-        Label answerId = new Label(answer.getId());
+    private Label createAnswerIdLabel(AnswerRow answerRow) {
+        Label answerId = new Label(answerRow.getId());
         answerId.setId("answerIdLabel");
         answerId.setPrefWidth(answerIdLabelSize);
         answerId.setPrefHeight(answerIdLabelSize);
         return answerId;
     }
 
-    private Label createAnswerTextLabel(Answer answer) {
-        Label answerText = new Label(answer.getAnswer());
+    private Label createAnswerTextLabel(AnswerRow answerRow) {
+        Label answerText = new Label(answerRow.getAnswer());
         answerText.setId("answerTextLabel");
         answerText.setMaxWidth((double) listView.getWidth() * 0.9 - answerIdLabelSize);
         answerText.setWrapText(true);

@@ -1,21 +1,21 @@
 package com.example.bettertogether.QuestionCreatorGUI;
 
-import com.example.bettertogether.Test.Answer;
+import com.example.bettertogether.Test.AnswerRow;
 import javafx.scene.control.TableView;
 
 import java.util.List;
 
 public class AnswersGetter {
 
-    private final TableView<Answer> tableView;
-    private List<Answer> answerList;
-    public AnswersGetter(TableView<Answer> tableView) {
+    private final TableView<AnswerRow> tableView;
+    private List<AnswerRow> answerRowList;
+    public AnswersGetter(TableView<AnswerRow> tableView) {
         this.tableView = tableView;
     }
-    public List<Answer> loadAnswers() {
-        answerList = tableView.getItems();
+    public List<AnswerRow> getAnswers() {
+        answerRowList = tableView.getItems();
 
-        return answerList;
+        return answerRowList;
     }
 
 }

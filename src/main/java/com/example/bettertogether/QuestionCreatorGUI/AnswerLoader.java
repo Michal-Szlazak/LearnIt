@@ -1,10 +1,8 @@
 package com.example.bettertogether.QuestionCreatorGUI;
 
-import com.example.bettertogether.Test.Answer;
+import com.example.bettertogether.Test.AnswerRow;
 import com.example.bettertogether.Test.Question;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 
 public class AnswerLoader {
 
@@ -18,8 +16,8 @@ public class AnswerLoader {
 
     public void loadQuestion(Question question) {
         questionTextField.setText(question.toString());
-        for(Answer answer : question.getAnswers()) {
-            answerTableView.addAnswer(answer);
+        for(AnswerRow answerRow : question.getAnswers()) {
+            answerTableView.addAnswer(answerRow);
         }
     }
 

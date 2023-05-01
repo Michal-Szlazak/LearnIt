@@ -4,28 +4,32 @@
     -fx-max-height: 600px;
     -fx-max-width: 800px;
 
-
-    -fx-background-color: white;
+    -fx-background-color: #197278;
     -fx-background-radius: 10px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
-
+    -fx-padding: 10;
 }
 
 .table-view {
     -fx-background-radius: 10px;
-    -fx-background-color: white;
+    -fx-background-color: #283d3b;
     -fx-padding: 0 0 0 0;
 }
 
 .table-row-cell:empty > .table-cell {
-    -fx-background-color: white;
-    -fx-border-color: white;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.table-row-cell:hover {
+    -fx-border-radius: 5;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, #5BB2B2, 5, 0.5, 0, 0);
+    -fx-background-border: 10px;
 }
 
 .table-row-cell:selected {
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,2), 2, 0, 3, 3);
-    -fx-background-border: 10px;
-    -fx-text-background-color: black;
+    -fx-effect: dropshadow(three-pass-box, #5BB2B2, 10, 0.5, 0, 0);
 }
 
 .table-row-cell {
@@ -42,20 +46,22 @@
 .table-view .column-header {
     -fx-cell-size: 50px;
     -fx-background-radius: 10px;
-    -fx-background-color: white;
+    -fx-background-color: #197278;
     -fx-border-radius: 10px;
-    -fx-border-color: black;
+    -fx-border-color: #5BB2B2;
 }
 
 .table-view .table-cell{
     -fx-cell-size: 50px;
     -fx-background-radius: 10px;
-    -fx-background-color: white;
+    -fx-background-color: #283d3b;
     -fx-border-radius: 10px;
-    -fx-border-color: black;
+    -fx-border-color: #EDDDD4;
     -fx-padding: 10 2 5 2;
     -fx-border-insets: 2;
     -fx-background-insets: 2;
+
+    -fx-text-fill: #EDDDD4;
 }
 
 .table-column {
@@ -64,23 +70,31 @@
 
 #answerButtons > .button {
     -fx-min-width: 50px;
-    -fx-background-color: #B7E6E6;
+    -fx-background-color: #197278;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
+    -fx-border-color: #5BB2B2;
+    -fx-text-fill: #7CFFC4;
 }
 
 #answerButtons > .button:hover {
-    -fx-background-color: #D7FFFF;
-    -fx-border-color: black;
-    -fx-border-radius: 5;
     -fx-cursor: hand;
-}
-
-#answerButtons > .button:pressed {
-        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,2), 2, 0, 3, 3);
 }
 
 .text-field {
     -fx-border-radius: 10;
     -fx-background-radius: 10;
+    -fx-border-color: #5BB2B2;
+    -fx-text-fill: #EDDDD4;
+    -fx-background-color: #283d3b;
+}
+
+.table-view .table-cell .label {
+    -fx-text-fill: #EDDDD4;
+    -fx-background-color: #283d3b;
+}
+
+.table-view .check-box {
+    -fx-text-fill: #EDDDD4;
+    -fx-background-color: #283d3b;
 }

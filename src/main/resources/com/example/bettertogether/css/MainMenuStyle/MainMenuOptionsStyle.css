@@ -4,7 +4,7 @@
     -fx-min-width: 240px;
     -fx-max-width: 300px;
 
-    -fx-background-color: white;
+    -fx-background-color: #197278;
     -fx-background-radius: 10px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
 }
@@ -13,12 +13,17 @@
     -fx-pref-width: 1000px;
     -fx-pref-height: 50px;
 
-    -fx-background-color: white;
     -fx-font-size: 18px;
 
+    -fx-background-color: #197278;
     -fx-background-radius: 10px;
-    -fx-border-radius: 10px;
     -fx-border-color: #5BB2B2;
+    -fx-border-width: 3;
+
+}
+
+.button {
+    -fx-text-fill: #7CFFC4;
 }
 
 #optionsGridPane > Label {
@@ -26,16 +31,13 @@
     -fx-pref-height: 50px;
 
     -fx-font-family: 'Allerta Stencil';
-    -fx-font-size: 24px;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-background-color: #EDDDD4;
+
 }
 
 #optionsGridPane > Button:hover {
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
     -fx-cursor: hand;
-}
-
-#optionsGridPane > Button:pressed {
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,2), 10, 0, 0, 0);
-    -fx-background-color: lightgrey;
 }
 

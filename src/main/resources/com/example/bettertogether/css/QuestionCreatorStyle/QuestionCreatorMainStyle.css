@@ -1,13 +1,17 @@
 #background {
-    -fx-backGround-color: #B7E6E6;
+    -fx-background-color: #283d3b;
 }
 
 #questionLabel {
-    -fx-background-color: white;
+    -fx-background-color: #197278;
     -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #7CFFC4;
+    -fx-text-background-color: #EDDDD4;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
-    -fx-border-color: black;
+    -fx-border-color: #EDDDD4;
+    -fx-border-width: 3;
     -fx-max-width: 300px;
     -fx-max-height: 100px;
 }
@@ -15,33 +19,32 @@
 #questionTextField {
     -fx-font-size: 18px;
     -fx-background-radius: 10px;
+    -fx-text-fill: #7CFFC4;
+    -fx-background-color: #197278;
     -fx-border-radius: 10px;
-    -fx-border-color: black;
+    -fx-border-color: #EDDDD4;
+    -fx-border-width: 2;
     -fx-min-width: 100px;
     -fx-max-width: 500px;
     -fx-max-height: 50px;
 }
 
-#addNewQuestionButton, #cancelButton, #saveEditedQuestionButton, #addNewQuestionToTestButton {
+#cancelButton, #saveEditedQuestionButton, #addNewQuestionToTestButton {
     -fx-padding: 10 50 10 50;
-    -fx-background-color: white;
+    -fx-background-color: #283d3b;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
-    -fx-border-color: black;
-    -fx-min-width: 200px;
-    -fx-min-height: 50px;
+    -fx-border-color: #197278;
+    -fx-border-width: 3;
+    -min-width: 200px;
+    -min-height: 50px;
+
+    -fx-text-fill: #7CFFC4;
 }
 
-#cancelButton:hover, #addNewQuestionButton:hover, #saveEditedQuestionButton:hover, #addNewQuestionToTestButton:hover {
-     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
-     -fx-cursor: hand;
+#cancelButton:hover, #saveEditedQuestionButton:hover, #addNewQuestionToTestButton:hover {
+    -fx-cursor: hand;
 }
-
-#cancelButton:pressed, #addNewQuestionButton:pressed, #saveEditedQuestionButton:pressed, #addNewQuestionToTestButton:pressed {
-     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,2), 10, 0, 0, 0);
-     -fx-background-color: lightgrey;
-}
-
 
 .table-view *.scroll-bar:horizontal *.increment-button,
 .table-view *.scroll-bar:horizontal *.decrement-button {

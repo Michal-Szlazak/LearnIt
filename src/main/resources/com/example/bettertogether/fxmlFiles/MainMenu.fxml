@@ -8,6 +8,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import java.net.URL?>
 
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.layout.StackPane?>
 <GridPane id="background" fx:controller="com.example.bettertogether.MainMenuController"
           xmlns:fx="http://javafx.com/fxml" alignment="CENTER" hgap="15" vgap="20">
     <stylesheets>
@@ -32,7 +34,7 @@
         <Label text="Options" GridPane.rowIndex="0" alignment="CENTER"/>
         <Button fx:id="createNewTestButton" text="Create a new test" GridPane.rowIndex="1"
                 onAction="#goToTestCreator"/>
-        <Button id="downloadNewTestButton" text="Download a new test" GridPane.rowIndex="2"/>
+        <Button fx:id="downloadNewTestButton" text="Download a new test" GridPane.rowIndex="2"/>
     </GridPane>
     <GridPane id="testListGridPane" GridPane.rowIndex="1" GridPane.columnIndex="1" vgap="10">
         <padding>

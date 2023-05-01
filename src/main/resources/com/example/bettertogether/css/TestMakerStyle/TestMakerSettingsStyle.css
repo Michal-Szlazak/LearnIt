@@ -1,10 +1,12 @@
 #background {
-    -fx-backGround-color: #B7E6E6;
+    -fx-backGround-color: #283d3b;
 }
 
 #testSettingLabel {
-    -fx-background-color: white;
+    -fx-background-color: #197278;
     -fx-font-size: 30px;
+    -fx-text-fill: #EDDDD4;
+    -fx-font-weight: bold;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
     -fx-border-color: black;
@@ -13,7 +15,7 @@
 }
 
 #testChoiceBox {
-    -fx-background-color: white;
+    -fx-background-color: #197278;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
     -fx-border-color: black;
@@ -22,27 +24,25 @@
 }
 
 #cancelButton {
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+    -fx-text-fill: #7CFFC4;
     -fx-padding: 10 50 10 50;
-    -fx-background-color: white;
+    -fx-background-color: #283d3b;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
-    -fx-border-color: black;
+    -fx-border-color: #197278;
+    -fx-border-width: 3;
     -fx-min-width: 200px;
     -fx-min-height: 50px;
 }
 
 #cancelButton:hover {
-     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
      -fx-cursor: hand;
 }
 
-#cancelButton:pressed {
-     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,2), 10, 0, 0, 0);
-     -fx-background-color: lightgrey;
-}
-
 #quickTestVBox, #fullTestVBox{
-    -fx-background-color: white;
+    -fx-background-color: #283d3b;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
     -fx-border-color: black;
@@ -54,6 +54,7 @@
 
 #quickTestLabel, #fullTestLabel {
     -fx-font-size: 20px;
+    -fx-text-fill: #EDDDD4;
 }
 
 #quickTestInformationButton, #fullTestInformationButton {
@@ -68,14 +69,14 @@
 
 #takeQuickTestButton, #takeFullTestButton {
     -fx-padding: 1 5 1 5;
-    -fx-background-color: white;
+    -fx-background-color: #197278;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
-    -fx-border-color: black;
+    -fx-border-color: #5BB2B2;
+    -fx-text-fill: #7CFFC4;
     -fx-font-size: 12px;
 }
 
 .button:hover {
     -fx-cursor: hand;
-    -fx-effect: dropshadow(three-pass-box, black, 0, 0, 2, 2);
 }

@@ -1,14 +1,12 @@
 package com.example.bettertogether.QuestionCreatorGUI;
 
-import com.example.bettertogether.Test.Answer;
-
-import java.util.List;
+import com.example.bettertogether.Test.AnswerRow;
 
 public class AnswersChecker {
 
-    private final Answer answer;
-    public AnswersChecker(Answer answer) {
-        this.answer = answer;
+    private final AnswerRow answerRow;
+    public AnswersChecker(AnswerRow answerRow) {
+        this.answerRow = answerRow;
     }
 
     public void checkAnswers() {

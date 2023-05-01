@@ -1,7 +1,7 @@
 package com.example.bettertogether;
 
 import com.example.bettertogether.QuestionCreatorGUI.*;
-import com.example.bettertogether.Test.Answer;
+import com.example.bettertogether.Test.AnswerRow;
 import com.example.bettertogether.Test.Question;
 import com.example.bettertogether.Test.Test;
 import javafx.event.ActionEvent;
@@ -20,7 +20,7 @@ public class QuestionCreatorController {
     @FXML
     private TextField questionTextField;
     @FXML
-    private TableView<Answer> tableView;
+    private TableView<AnswerRow> tableView;
     private AnswerTableView answerTableView;
     @FXML
     private Button addAnswerButton;
@@ -30,10 +30,13 @@ public class QuestionCreatorController {
     private Button addNewQuestionToTestButton;
     @FXML
     private Button cancelButton;
-    @FXML
-    private Button saveEditedQuestionButton;
 
     public void initialize() {
+        ButtonAnimation.setButtonAnimation(addAnswerButton);
+        ButtonAnimation.setButtonAnimation(deleteAnswerButton);
+        ButtonAnimation.setButtonAnimation(addNewQuestionToTestButton);
+        ButtonAnimation.setButtonAnimation(cancelButton);
+
         new QuestionTextField(questionTextField);
         questionTextField.setFocusTraversable(false);
 
@@ -44,7 +47,7 @@ public class QuestionCreatorController {
         AnswersGetter answersGetter = new AnswersGetter(tableView);
         QuestionCreator questionCreator = new QuestionCreator(questionTextField);
         addNewQuestionToTestButton.setOnAction(event -> {
-            Question question = questionCreator.createQuestion(answersGetter.loadAnswers());
+            Question question = questionCreator.createQuestion(answersGetter.getAnswers());
             test.addNewQuestion(question);
             goToTestCreator(event);
         });
@@ -98,7 +101,7 @@ public class QuestionCreatorController {
         QuestionCreator questionCreator = new QuestionCreator(questionTextField);
         AnswersGetter answersGetter = new AnswersGetter(tableView);
         addNewQuestionToTestButton.setOnAction(event -> {
-            Question question = questionCreator.createQuestion(answersGetter.loadAnswers());
+            Question question = questionCreator.createQuestion(answersGetter.getAnswers());
             test.addNewQuestion(question);
             goToTestEditorView(event);
         });

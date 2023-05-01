@@ -3,6 +3,9 @@ package com.example.bettertogether;
 import com.example.bettertogether.JsonMappers.TestToJsonMapper;
 import com.example.bettertogether.Test.Question;
 import com.example.bettertogether.Test.Test;
+import com.example.bettertogether.TestCreatorGUI.InputWarningsPrinter;
+import com.example.bettertogether.TestCreatorGUI.TestCheckerBeforeSubmit;
+import com.example.bettertogether.TestCreatorGUI.TestInputMistakes;
 import com.example.bettertogether.TestCreatorGUI.TestListView;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -18,6 +21,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class TestCreatorController {
 
@@ -42,13 +46,27 @@ public class TestCreatorController {
     private Test test;
 
     public void initialize() {
+        ButtonAnimation.setButtonAnimation(addQuestionButton);
+        ButtonAnimation.setButtonAnimation(deleteQuestionButton);
+        ButtonAnimation.setButtonAnimation(editQuestionButton);
+        ButtonAnimation.setButtonAnimation(cancelButton);
+        ButtonAnimation.setButtonAnimation(submitButton);
+        ButtonAnimation.setButtonAnimation(saveChanges);
+
+        InputWarningsPrinter warningsPrinter = new InputWarningsPrinter(testNameTextField, questionListView);
+
         TestListView testListView = new TestListView(questionListView);
         cancelButton.setOnAction(this::goToMainMenu);
         submitButton.setOnAction(event -> {
             uploadTestName();
-            TestToJsonMapper jsonConverter = new TestToJsonMapper();
-            jsonConverter.convertToJsonConverter(test);
-            goToMainMenu(event);
+            List<TestInputMistakes> mistakesList = TestCheckerBeforeSubmit.checkTest(test);
+            if(mistakesList.isEmpty()) {
+                TestToJsonMapper jsonConverter = new TestToJsonMapper();
+                jsonConverter.convertToJsonConverter(test);
+                goToMainMenu(event);
+            } else {
+                warningsPrinter.printWarnings(mistakesList);
+            }
         });
         saveChanges.setOnAction(event -> {
             File oldFile = new File(FolderPaths.pathToTestFolder + test.getTestName() + ".json");

@@ -40,6 +40,13 @@ public class TestEditorViewController {
     private Test test;
 
     public void initialize() {
+        ButtonAnimation.setButtonAnimation(addQuestionButton);
+        ButtonAnimation.setButtonAnimation(deleteQuestionButton);
+        ButtonAnimation.setButtonAnimation(editQuestionButton);
+        ButtonAnimation.setButtonAnimation(cancelButton);
+        ButtonAnimation.setButtonAnimation(saveChanges);
+        ButtonAnimation.setButtonAnimation(saveChanges);
+
         TestListView testListView = new TestListView(questionListView);
         cancelButton.setOnAction(this::goToMainMenu);
         saveChanges.setOnAction(event -> {

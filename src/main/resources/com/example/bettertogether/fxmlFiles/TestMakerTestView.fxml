@@ -20,7 +20,7 @@
     </padding>
 
     <VBox spacing="20" alignment="CENTER">
-        <Label id="testLabel" text="Default test text" alignment="CENTER"/>
+        <Label fx:id="testLabel" alignment="CENTER"/>
     </VBox>
 
     <VBox id="questionVBox" spacing="5" alignment="CENTER">
@@ -37,7 +37,7 @@
         <ListView fx:id="answerListView"/>
 
         <HBox id="answerButtons" alignment="CENTER" spacing="10">
-            <Button id="submitButton" text="Submit"/>
+            <Button fx:id="submitButton" text="Submit"/>
         </HBox>
     </VBox>
     <HBox alignment="CENTER" spacing="10">

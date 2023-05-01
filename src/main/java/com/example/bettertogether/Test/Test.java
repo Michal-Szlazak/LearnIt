@@ -6,16 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Test {
-
-
     private String testName;
-
     private List<Question> questions;
-
     public Test() {
         questions = new ArrayList<>();
     }
-
     @Override
     public String toString() {
         return String.format("{testName:%s,questions:%s}", testName, questions);
@@ -39,5 +34,4 @@ public class Test {
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
-
 }

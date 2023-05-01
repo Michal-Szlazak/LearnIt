@@ -22,14 +22,14 @@
 
     <VBox spacing="20" alignment="CENTER">
         <Label id="questionLabel" text="New question" alignment="CENTER"/>
-        <TextField fx:id="questionTextField" promptText="Your question"/>
     </VBox>
 
-    <VBox id="answersVBox" spacing="5">
+    <VBox id="answersVBox" spacing="5" alignment="CENTER">
 
         <padding>
             <Insets left="5" right="5" top="5" bottom="5"/>
         </padding>
+        <TextField fx:id="questionTextField" promptText="Your question"/>
 
         <TableView fx:id="tableView"/>
         <HBox id="answerButtons" alignment="CENTER_RIGHT" spacing="10">

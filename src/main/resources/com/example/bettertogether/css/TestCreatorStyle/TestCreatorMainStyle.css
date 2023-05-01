@@ -1,14 +1,18 @@
 #background {
-    -fx-backGround-color: #B7E6E6;
+    -fx-background-color: #283d3b;
 }
 
 #testNameTextField {
 
-    -fx-background-color: white;
-    -fx-font-size: 26px;
+    -fx-background-color: #197278;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #7CFFC4;
+    -fx-text-background-color: #EDDDD4;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
-    -fx-border-color: black;
+    -fx-border-color: #EDDDD4;
+    -fx-border-width: 3;
 
     -fx-max-width: 500px;
     -fx-max-height: 50px;
@@ -17,20 +21,17 @@
 
 #submitButton, #cancelButton, #saveChanges {
     -fx-padding: 10 50 10 50;
-    -fx-background-color: white;
+    -fx-background-color: #283d3b;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
-    -fx-border-color: black;
+    -fx-border-color: #197278;
+    -fx-border-width: 3;
     -min-width: 100px;
     -min-height: 50px;
+
+    -fx-text-fill: #7CFFC4;
 }
 
 #cancelButton:hover, #submitButton:hover, #saveChanges:hover {
-     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
      -fx-cursor: hand;
-}
-
-#cancelButton:pressed, #submitButton:pressed, #saveChanges:pressed {
-     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,2), 10, 0, 0, 0);
-     -fx-background-color: lightgrey;
 }

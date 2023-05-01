@@ -8,7 +8,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TitledPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -24,8 +23,6 @@ public class TestMakerSettingsViewController {
     @FXML
     private Button takeFullTestButton;
     @FXML
-    private TitledPane descriptionTitledPane;
-    @FXML
     private Text quickTestDescriptionText;
     @FXML
     private Text fullTestDescriptionText;
@@ -35,6 +32,11 @@ public class TestMakerSettingsViewController {
     private Button fullTestInformationButton;
 
     public void initialize() {
+        ButtonAnimation.setButtonAnimation(cancelButton);
+        ButtonAnimation.setButtonAnimation(takeQuickTestButton);
+        ButtonAnimation.setButtonAnimation(takeFullTestButton);
+        ButtonAnimation.setButtonAnimation(quickTestInformationButton);
+        ButtonAnimation.setButtonAnimation(fullTestInformationButton);
         quickTestDescriptionText.setVisible(false);
         quickTestDescriptionText.setManaged(false);
         fullTestDescriptionText.setVisible(false);

@@ -1,13 +1,16 @@
 #background {
-    -fx-backGround-color: #B7E6E6;
+    -fx-backGround-color: #283d3b;
 }
 
-#testLabel, #questionLabel {
-    -fx-background-color: white;
+#testLabel {
+    -fx-background-color: #283d3b;
     -fx-font-size: 30px;
+    -fx-text-fill: #EDDDD4;
+    -fx-font-weight: bold;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
-    -fx-border-color: black;
+    -fx-border-color: #EDDDD4;
+    -fx-border-width: 3;
     -fx-max-width: 300px;
     -fx-max-height: 100px;
 }
@@ -15,39 +18,53 @@
 #questionHeaderVBox {
     -fx-border-insets: 10;
     -fx-background-insets: 10;
+    -fx-background-color: #197278;
 }
 
 #questionIdLabel {
     -fx-font-size: 25px;
-    -fx-border-color: transparent;
+    -fx-border-color: #5BB2B2;
+    -fx-border-width: 3;
+    -fx-border-radius: 10;
+    -fx-text-fill: #EDDDD4;
     -fx-background-radius: 10;
-    -fx-background-color: #ccccff;
+    -fx-background-color: #283d3b;
     -fx-padding: 5 20 5 20;
 }
 
 #questionLabel {
     -fx-font-size: 20px;
-    -fx-border-color: transparent;
-    -fx-border-color: black;
+    -fx-background-color: #283d3b;
+    -fx-background-radius: 10;
+    -fx-border-color: #5BB2B2;
+    -fx-border-radius: 10;
+    -fx-border-width: 3;
+    -fx-padding: 5;
+    -fx-text-fill: #7CFFC4;
+
 }
 
 #questionVBox {
-    -fx-background-color: white;
+    -fx-background-color: #197278;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
     -fx-border-color: black;
 }
 
 #answerTableView {
-    -fx-background-color: white;
+    -fx-background-color: #283d3b;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
     -fx-max-width: 1000;
 }
 
 #submitButton {
-    -fx-background-color: #4dffd2;
-    -fx-border-color: black;
+    -fx-background-color: #197278;
+    -fx-border-color: #5BB2B2;
+    -fx-border-width: 3;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-text-fill: #7CFFC4;
     -fx-pref-width: 200;
     -fx-pref-height: 50;
     -fx-border-insets: 10;
@@ -56,34 +73,16 @@
 
 #submitButton:hover {
     -fx-cursor: hand;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,2), 2, 0, 3, 3);
-}
-
-#submitButton:pressed {
-    -fx-background-color: #00cc99;
-}
-
-#submitButton {
-    -fx-background-color: #4dffd2;
-    -fx-border-color: black;
-    -fx-pref-width: 200;
-    -fx-pref-height: 50;
-    -fx-border-insets: 10;
-    -fx-background-insets: 10;
-}
-
-#submitButton:hover {
-    -fx-cursor: hand;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,2), 2, 0, 3, 3);
-}
-
-#submitButton:pressed {
-    -fx-background-color: #00cc99;
 }
 
 #cancelButton {
-    -fx-background-color: white;
-    -fx-border-color: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+    -fx-text-fill: #7CFFC4;
+    -fx-border-color: #197278;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-background-color: #283d3b;
     -fx-pref-width: 300;
     -fx-pref-height: 80;
     -fx-border-insets: 10;
@@ -92,11 +91,7 @@
 
 #cancelButton:hover {
     -fx-cursor: hand;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,2), 2, 0, 3, 3);
 }
 
-#cancelButton:pressed {
-    -fx-background-color: #8c8c8c;
-}
 
 

@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
 public class MainMenuController {
@@ -21,6 +22,10 @@ public class MainMenuController {
     private Parent root;
 
     private Test test;
+    @FXML
+    private Button createNewTestButton;
+    @FXML
+    private Button downloadNewTestButton;
     @FXML
     private ListView<String> testListView;
     @FXML
@@ -35,8 +40,13 @@ public class MainMenuController {
         TestLoader testLoader = new TestLoader(testListView);
         testLoader.load();
 
-        test = new Test();
+        ButtonAnimation.setButtonAnimation(createNewTestButton);
+        ButtonAnimation.setButtonAnimation(downloadNewTestButton);
+        ButtonAnimation.setButtonAnimation(doTestButton);
+        ButtonAnimation.setButtonAnimation(editTestButton);
+        ButtonAnimation.setButtonAnimation(deleteTestButton);
 
+        test = new Test();
         doTestButton.setOnAction(event -> {
             if(testListView.getSelectionModel().getSelectedItem() == null) {
                 return;

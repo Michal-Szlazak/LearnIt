@@ -1,7 +1,7 @@
 package com.example.bettertogether;
 
 import com.example.bettertogether.QuestionCreatorGUI.*;
-import com.example.bettertogether.Test.Answer;
+import com.example.bettertogether.Test.AnswerRow;
 import com.example.bettertogether.Test.Question;
 import com.example.bettertogether.Test.Test;
 import javafx.application.Platform;
@@ -25,7 +25,7 @@ public class QuestionEditorViewController {
     @FXML
     private TextField questionTextField;
     @FXML
-    private TableView<Answer> tableView;
+    private TableView<AnswerRow> tableView;
     private AnswerTableView answerTableView;
     @FXML
     private Button addAnswerButton;
@@ -37,6 +37,11 @@ public class QuestionEditorViewController {
     private Button saveEditedQuestionButton;
 
     public void initialize() {
+        ButtonAnimation.setButtonAnimation(addAnswerButton);
+        ButtonAnimation.setButtonAnimation(deleteAnswerButton);
+        ButtonAnimation.setButtonAnimation(saveEditedQuestionButton);
+        ButtonAnimation.setButtonAnimation(cancelButton);
+
         new QuestionTextField(questionTextField);
         questionTextField.setFocusTraversable(false);
 
