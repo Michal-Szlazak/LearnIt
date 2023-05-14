@@ -37,7 +37,6 @@ public class QuestionCreatorController {
         ButtonAnimation.setButtonAnimation(addNewQuestionToTestButton);
         ButtonAnimation.setButtonAnimation(cancelButton);
 
-        new QuestionTextField(questionTextField);
         questionTextField.setFocusTraversable(false);
 
         answerTableView = new AnswerTableView(tableView);
@@ -47,9 +46,14 @@ public class QuestionCreatorController {
         AnswersGetter answersGetter = new AnswersGetter(tableView);
         QuestionCreator questionCreator = new QuestionCreator(questionTextField);
         addNewQuestionToTestButton.setOnAction(event -> {
-            Question question = questionCreator.createQuestion(answersGetter.getAnswers());
-            test.addNewQuestion(question);
-            goToTestCreator(event);
+            AnswersChecker answersChecker = new AnswersChecker();
+            boolean questionCorrectness = QuestionChecker.checkQuestion(questionTextField);
+            boolean answersCorrectness = answersChecker.checkAnswers(tableView);
+            if(questionCorrectness && answersCorrectness) {
+                Question question = questionCreator.createQuestion(answersGetter.getAnswers());
+                test.addNewQuestion(question);
+                goToTestCreator(event);
+            }
         });
         cancelButton.setOnAction(this::goToTestCreator);
 
@@ -101,9 +105,14 @@ public class QuestionCreatorController {
         QuestionCreator questionCreator = new QuestionCreator(questionTextField);
         AnswersGetter answersGetter = new AnswersGetter(tableView);
         addNewQuestionToTestButton.setOnAction(event -> {
-            Question question = questionCreator.createQuestion(answersGetter.getAnswers());
-            test.addNewQuestion(question);
-            goToTestEditorView(event);
+            AnswersChecker answersChecker = new AnswersChecker();
+            boolean questionCorrectness = QuestionChecker.checkQuestion(questionTextField);
+            boolean answersCorrectness = answersChecker.checkAnswers(tableView);
+            if(questionCorrectness && answersCorrectness) {
+                Question question = questionCreator.createQuestion(answersGetter.getAnswers());
+                test.addNewQuestion(question);
+                goToTestEditorView(event);
+            }
         });
     }
 }

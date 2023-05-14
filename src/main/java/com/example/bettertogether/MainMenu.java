@@ -17,6 +17,7 @@ public class MainMenu extends Application {
 
         stage.setTitle("BetterTogether");
         stage.setScene(scene);
+        stage.setMaximized(true);
         stage.show();
 
     }

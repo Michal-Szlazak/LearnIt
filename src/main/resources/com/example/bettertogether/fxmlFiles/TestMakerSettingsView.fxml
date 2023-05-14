@@ -4,8 +4,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
-<?import javafx.scene.text.TextFlow?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       id="background"
@@ -25,31 +25,52 @@
         <Label id="testSettingLabel" text="Test Settings" alignment="CENTER"/>
     </VBox>
 
-    <HBox id="testChoiceBox" spacing="20" alignment="CENTER">
-
+    <VBox id="testSettingsBox" spacing="20" alignment="CENTER">
         <padding>
             <Insets left="5" right="5" top="5" bottom="5"/>
         </padding>
 
+        <Label id="testModeLabel" text="Test Mode"/>
+        <HBox id="testModeBox" alignment="CENTER">
+            <VBox id="quickTestVBox" alignment="CENTER" spacing="10">
+                <HBox id="quickTestHeadingHBox" alignment="CENTER" spacing="10">
+                    <Label id="quickTestLabel" text="Quick Test"/>
+                    <Button fx:id="quickTestInformationButton"/>
+                </HBox>
+                <Text fx:id="quickTestDescriptionText"
+                      text="contains questions that you've had problems with"
+                      wrappingWidth="200"
+                />
+                <Button fx:id="takeQuickTestButton" text="Take"/>
+                <TextFlow fx:id="takeFullTestInfoTextFlow" textAlignment="CENTER" visible="false" managed="false">
+                    <Label fx:id="takeFullTestInfo"
+                           managed="false"
+                           visible="false"
+                           wrapText="true"
+                    />
+                </TextFlow>
+                <Label fx:id="numberOfQuickTestQuestions"/>
+            </VBox>
+            <VBox id="fullTestVBox" alignment="CENTER" spacing="10">
+                <HBox id="fullTestHeadingHBox" alignment="CENTER" spacing="10">
+                    <Label id="fullTestLabel" text="Full Test"/>
+                    <Button fx:id="fullTestInformationButton"/>
+                </HBox>
+                <Text fx:id="fullTestDescriptionText"
+                      text="contains all questions"/>
+                <Button fx:id="takeFullTestButton" text="Take"/>
+                <Label fx:id="numberOfFullTestQuestions"/>
+            </VBox>
+        </HBox>
+        <Label id="testSettingsLabel" text="Settings"/>
+        <GridPane id="settingsGridPane" alignment="CENTER" vgap="10" hgap="10">
+            <Label text="Shuffle questions" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <CheckBox fx:id="shuffleQuestionsCheckBox" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <Label text="Repeat wrongly answered questions" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+            <CheckBox fx:id="repeatWronglyAnsweredQuestions" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+        </GridPane>
+    </VBox>
 
-        <VBox id="quickTestVBox" alignment="CENTER" spacing="10">
-            <HBox id="quickTestHeadingHBox" alignment="CENTER" spacing="10">
-                <Label id="quickTestLabel" text="Quick Test"/>
-                <Button fx:id="quickTestInformationButton"/>
-            </HBox>
-            <Text fx:id="quickTestDescriptionText" text="Not implemented yet"/>
-            <Button fx:id="takeQuickTestButton" text="Take"/>
-        </VBox>
-        <VBox id="fullTestVBox" alignment="CENTER" spacing="10">
-            <HBox id="fullTestHeadingHBox" alignment="CENTER" spacing="10">
-                <Label id="fullTestLabel" text="Full Test"/>
-                <Button fx:id="fullTestInformationButton"/>
-            </HBox>
-            <Text fx:id="fullTestDescriptionText" text="Not implemented yet"/>
-            <Button fx:id="takeFullTestButton" text="Take"/>
-        </VBox>
-
-    </HBox>
     <HBox id="cancelHBox" alignment="CENTER" spacing="10">
         <Button fx:id="cancelButton" text="cancel"/>
     </HBox>

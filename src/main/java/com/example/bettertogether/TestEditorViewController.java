@@ -3,7 +3,11 @@ package com.example.bettertogether;
 import com.example.bettertogether.JsonMappers.TestToJsonMapper;
 import com.example.bettertogether.Test.Question;
 import com.example.bettertogether.Test.Test;
+import com.example.bettertogether.TestEditorGUI.TestCheckerBeforeSubmit;
 import com.example.bettertogether.TestCreatorGUI.TestListView;
+import com.example.bettertogether.TestEditorGUI.InputWarningsPrinter;
+import com.example.bettertogether.TestEditorGUI.TestInputMistakes;
+import com.example.bettertogether.TestEditorGUI.TestNameBeforeEditionHolder;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,6 +22,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class TestEditorViewController {
 
@@ -46,20 +51,29 @@ public class TestEditorViewController {
         ButtonAnimation.setButtonAnimation(cancelButton);
         ButtonAnimation.setButtonAnimation(saveChanges);
         ButtonAnimation.setButtonAnimation(saveChanges);
+        testNameTextField.setFocusTraversable(false);
 
         TestListView testListView = new TestListView(questionListView);
+        InputWarningsPrinter inputWarningsPrinter = new InputWarningsPrinter(testNameTextField, questionListView);
         cancelButton.setOnAction(this::goToMainMenu);
         saveChanges.setOnAction(event -> {
-            File oldFile = new File(FolderPaths.pathToTestFolder + test.getTestName() + ".json");
-            oldFile.delete();
-            TestToJsonMapper jsonConverter = new TestToJsonMapper();
-            jsonConverter.convertToJsonConverter(test);
-            goToMainMenu(event);
+            uploadTestName();
+            List<TestInputMistakes> mistakesList = TestCheckerBeforeSubmit.checkTest(test);
+            if(mistakesList.isEmpty()) {
+                File oldFile = new File(FolderPaths.pathToTestFolder +
+                        TestNameBeforeEditionHolder.getTestNameBeforeEdition() + ".json");
+                oldFile.delete();
+                TestToJsonMapper jsonConverter = new TestToJsonMapper();
+                jsonConverter.convertToJsonConverter(test);
+                goToMainMenu(event);
+            } else {
+                inputWarningsPrinter.printWarnings(mistakesList);
+            }
+
         });
-        testNameTextField.setFocusTraversable(false);
         deleteQuestionButton.setOnAction(event -> {
-            testListView.deleteQuestion();
             test.getQuestions().remove(questionListView.getSelectionModel().getSelectedItem());
+            testListView.deleteQuestion();
         });
         editQuestionButton.setOnAction(this::goToQuestionEditorView);
         addQuestionButton.setOnAction(this::goToQuestionCreator);

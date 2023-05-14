@@ -21,7 +21,7 @@
 
 
     <VBox spacing="20" alignment="CENTER">
-        <Label id="questionLabel" text="New question" alignment="CENTER"/>
+        <Label id="questionLabel" text="Edit question" alignment="CENTER"/>
         <TextField fx:id="questionTextField" promptText="Your question"/>
     </VBox>
 

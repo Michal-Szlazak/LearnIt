@@ -8,20 +8,20 @@ public class Question {
 
 
     private String question;
-    private List<AnswerRow> answerRows;
+    private List<Answer> answers;
     private QuestionStatistics questionStatistics = new QuestionStatistics();
     @Override
     public String toString() {
         return question;
     }
-    public void addAnswers(List<AnswerRow> answerRows) {
-        this.answerRows = answerRows;
+    public void addAnswers(List<Answer> answers) {
+        this.answers = answers;
     }
     public String getQuestion() {
         return question;
     }
-    public List<AnswerRow> getAnswers() {
-        return answerRows;
+    public List<Answer> getAnswers() {
+        return answers;
     }
     public QuestionStatistics getQuestionStatistics() {
         return questionStatistics;
@@ -31,9 +31,9 @@ public class Question {
     public void setQuestion(String question) {
         this.question = question;
     }
-    @JsonProperty("answerRows")
-    public void setAnswers(List<AnswerRow> answerRows) {
-        this.answerRows = answerRows;
+    @JsonProperty("answers")
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
     }
     @JsonProperty("questionStatistics")
     public void setQuestionStatistics(QuestionStatistics questionStatistics) {

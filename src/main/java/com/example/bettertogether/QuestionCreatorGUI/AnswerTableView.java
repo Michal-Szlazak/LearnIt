@@ -9,7 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.List;
 
-public class AnswerTableView implements IAnswerTableView{
+public class AnswerTableView{
 
     private final TableView<AnswerRow> tableView;
     private final TableColumn<AnswerRow, String> answerId;
@@ -24,11 +24,11 @@ public class AnswerTableView implements IAnswerTableView{
         answer = new TableColumn<>();
         isCorrect = new TableColumn<>();
 
-        answerId.setCellValueFactory(new PropertyValueFactory<>("idLabel"));
+        answerId.setCellValueFactory(new PropertyValueFactory<>("id"));
         answerId.setText("Id");
-        answer.setCellValueFactory(new PropertyValueFactory<>("answerTextField"));
+        answer.setCellValueFactory(new PropertyValueFactory<>("answer"));
         answer.setText("AnswerRow");
-        isCorrect.setCellValueFactory(new PropertyValueFactory<>("isCorrectCheckBox"));
+        isCorrect.setCellValueFactory(new PropertyValueFactory<>("isCorrect"));
         isCorrect.setText("Is correct");
         this.tableView.getColumns().add(answerId);
         this.tableView.getColumns().add(answer);
@@ -64,8 +64,8 @@ public class AnswerTableView implements IAnswerTableView{
         int removeIndex = tableView.getItems().indexOf(answerRow);
         List<AnswerRow> answerRows = tableView.getItems();
         for(int i = removeIndex; i < answerRows.size(); i++) {
-            Label temp = answerRows.get(i).getIdLabel();
-            char id = temp.getText().charAt(0);
+            String temp = answerRows.get(i).getId().getText();
+            char id = temp.charAt(0);
             answerRows.get(i).setId(Character.toString(--id));
         }
 

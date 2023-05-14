@@ -23,7 +23,7 @@ public class TestToJsonMapper {
     private void createJsonFile(String filename, String json) {
         File file = new File(FolderPaths.pathToTestFolder + filename + ".json");
         if(file.exists()) {
-            throw new IllegalArgumentException("file is already created -> support this exc.");
+            file.delete();
         }
 
         try {

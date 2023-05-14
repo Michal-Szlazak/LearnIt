@@ -1,9 +1,12 @@
 package com.example.bettertogether;
 
 import com.example.bettertogether.JsonMappers.JsonToTestMapper;
+import com.example.bettertogether.JsonMappers.TestToJsonMapper;
 import com.example.bettertogether.MainMenuGUI.TestLoader;
 import com.example.bettertogether.MainMenuGUI.TestRemover;
 import com.example.bettertogether.Test.Test;
+import com.example.bettertogether.Test.TestStatisticsResetter;
+import com.example.bettertogether.TestEditorGUI.TestNameBeforeEditionHolder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,10 +14,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class MainMenuController {
     private Stage stage;
@@ -34,6 +39,10 @@ public class MainMenuController {
     private Button deleteTestButton;
     @FXML
     private Button editTestButton;
+    @FXML
+    private Button clearStatsButton;
+    @FXML
+    private Label clearStatsLabel;
 
     public void initialize() {
 
@@ -45,6 +54,7 @@ public class MainMenuController {
         ButtonAnimation.setButtonAnimation(doTestButton);
         ButtonAnimation.setButtonAnimation(editTestButton);
         ButtonAnimation.setButtonAnimation(deleteTestButton);
+        ButtonAnimation.setButtonAnimation(clearStatsButton);
 
         test = new Test();
         doTestButton.setOnAction(event -> {
@@ -54,6 +64,7 @@ public class MainMenuController {
             JsonToTestMapper mapper = new JsonToTestMapper();
             test = mapper.createTestFromJson(
                     testListView.getSelectionModel().getSelectedItem() + ".json");
+            System.out.println(test);
             goToTestMakerSettings(event);
         });
 
@@ -74,7 +85,30 @@ public class MainMenuController {
             JsonToTestMapper mapper = new JsonToTestMapper();
             test = mapper.createTestFromJson(
                     testListView.getSelectionModel().getSelectedItem() + ".json");
+            TestNameBeforeEditionHolder.setTestNameBeforeEdition(testListView.getSelectionModel().getSelectedItem());
             goToTestEditorView(event);
+        });
+
+        clearStatsButton.setOnAction(event -> {
+            if(testListView.getSelectionModel().getSelectedItem() == null) {
+                return;
+            }
+            JsonToTestMapper mapperToTest = new JsonToTestMapper();
+            test = mapperToTest.createTestFromJson(
+                    testListView.getSelectionModel().getSelectedItem() + ".json");
+            TestStatisticsResetter.reset(test);
+            TestToJsonMapper mapperToJson = new TestToJsonMapper();
+            mapperToJson.convertToJsonConverter(test);
+            Thread thread = new Thread(() -> {
+                clearStatsLabel.setVisible(true);
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                clearStatsLabel.setVisible(false);
+            });
+            thread.start();
         });
     }
 

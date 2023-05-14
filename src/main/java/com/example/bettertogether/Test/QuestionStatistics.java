@@ -4,27 +4,37 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class QuestionStatistics {
     private int answeredCorrectly;
-    private int answeredIncorrectly;
+    private int sumOfAnswers;
+    private int correctlyAnsweredStreak;
 
     public QuestionStatistics() {
         answeredCorrectly = 0;
-        answeredIncorrectly = 0;
+        sumOfAnswers = 0;
+        correctlyAnsweredStreak = 0;
     }
 
     @JsonProperty("answeredCorrectly")
     public int getAnsweredCorrectly() {
         return answeredCorrectly;
     }
-    @JsonProperty("answeredInCorrectly")
-    public int getAnsweredIncorrectly() {
-        return answeredIncorrectly;
+    @JsonProperty("sumOfAnswers")
+    public int getSumOfAnswers() {
+        return sumOfAnswers;
+    }
+    @JsonProperty("correctlyAnsweredStreak")
+    public int getCorrectlyAnsweredStreak() {
+        return correctlyAnsweredStreak;
     }
     @JsonProperty("answeredCorrectly")
     public void setAnsweredCorrectly(int answeredCorrectly) {
         this.answeredCorrectly = answeredCorrectly;
     }
-    @JsonProperty("answeredInCorrectly")
-    public void setAnsweredIncorrectly(int answeredIncorrectly) {
-        this.answeredIncorrectly = answeredIncorrectly;
+    @JsonProperty("sumOfAnswers")
+    public void setSumOfAnswers(int sumOfAnswers) {
+        this.sumOfAnswers = sumOfAnswers;
+    }
+    @JsonProperty("correctlyAnsweredStreak")
+    public void setCorrectlyAnsweredStreak(int correctlyAnsweredStreak) {
+        this.correctlyAnsweredStreak = correctlyAnsweredStreak;
     }
 }

@@ -42,7 +42,6 @@ public class QuestionEditorViewController {
         ButtonAnimation.setButtonAnimation(saveEditedQuestionButton);
         ButtonAnimation.setButtonAnimation(cancelButton);
 
-        new QuestionTextField(questionTextField);
         questionTextField.setFocusTraversable(false);
 
         answerTableView = new AnswerTableView(tableView);
@@ -50,8 +49,13 @@ public class QuestionEditorViewController {
         deleteAnswerButton.setOnAction(event -> answerTableView.deleteAnswer());
 
         saveEditedQuestionButton.setOnAction(event -> {
-            QuestionEditor.refreshAnswers(question, tableView.getItems());
-            goToTestCreator(event);
+            AnswersChecker answersChecker = new AnswersChecker();
+            boolean questionCorrectness = QuestionChecker.checkQuestion(questionTextField);
+            boolean answersCorrectness = answersChecker.checkAnswers(tableView);
+            if(questionCorrectness && answersCorrectness) {
+                QuestionEditor.refreshAnswers(question, tableView.getItems());
+                goToTestCreator(event);
+            }
         });
         cancelButton.setOnAction(this::goToTestCreator);
 
@@ -63,7 +67,6 @@ public class QuestionEditorViewController {
     public void setTest(Test test) {
         this.test = test;
     }
-
     public void setQuestion(Question question) {
         this.question = question;
     }
@@ -86,7 +89,6 @@ public class QuestionEditorViewController {
         stage.setScene(scene);
         stage.show();
     }
-
     public void goToTestEditor(ActionEvent event) {
         double width;
         double height;
@@ -108,8 +110,13 @@ public class QuestionEditorViewController {
     public void loadAnswerEditWindowFromTestEdit(Question question) {
         cancelButton.setOnAction(this::goToTestEditor);
         saveEditedQuestionButton.setOnAction(event -> {
-            QuestionEditor.refreshAnswers(question, tableView.getItems());
-            goToTestEditor(event);
+            AnswersChecker answersChecker = new AnswersChecker();
+            boolean questionCorrectness = QuestionChecker.checkQuestion(questionTextField);
+            boolean answersCorrectness = answersChecker.checkAnswers(tableView);
+            if(questionCorrectness && answersCorrectness) {
+                QuestionEditor.refreshAnswers(question, tableView.getItems());
+                goToTestEditor(event);
+            }
         });
     }
 }

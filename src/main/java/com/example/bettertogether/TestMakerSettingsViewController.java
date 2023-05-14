@@ -1,6 +1,11 @@
 package com.example.bettertogether;
 
 import com.example.bettertogether.Test.Test;
+import com.example.bettertogether.TestSettings.FullTestCompletionChecker;
+import com.example.bettertogether.TestSettings.QuestionCounter;
+import com.example.bettertogether.TestSettings.TestMode;
+import com.example.bettertogether.TestSettings.TestSettingsHolder;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +13,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -30,8 +38,21 @@ public class TestMakerSettingsViewController {
     private Button quickTestInformationButton;
     @FXML
     private Button fullTestInformationButton;
+    @FXML
+    private CheckBox shuffleQuestionsCheckBox;
+    @FXML
+    private CheckBox repeatWronglyAnsweredQuestions;
+    @FXML
+    private Label takeFullTestInfo;
+    @FXML
+    private TextFlow takeFullTestInfoTextFlow;
+    @FXML
+    private Label numberOfQuickTestQuestions;
+    @FXML
+    private Label numberOfFullTestQuestions;
 
     public void initialize() {
+        TestSettingsHolder.resetTestSettings();
         ButtonAnimation.setButtonAnimation(cancelButton);
         ButtonAnimation.setButtonAnimation(takeQuickTestButton);
         ButtonAnimation.setButtonAnimation(takeFullTestButton);
@@ -49,10 +70,43 @@ public class TestMakerSettingsViewController {
             fullTestDescriptionText.setVisible(!fullTestDescriptionText.isVisible());
             fullTestDescriptionText.setManaged(!fullTestDescriptionText.isManaged());
         });
-        takeQuickTestButton.setOnAction(this::goToTestMakerTestView);
-        takeFullTestButton.setOnAction(this::goToTestMakerTestView);
-
-         cancelButton.setOnAction(this::goToMainMenu);
+        takeQuickTestButton.setOnAction(event -> {
+            TestSettingsHolder.testMode = TestMode.QUICK;
+            TestSettingsHolder.repeatWronglyAnsweredQuestions = repeatWronglyAnsweredQuestions.isSelected();
+            TestSettingsHolder.shuffleQuestions = shuffleQuestionsCheckBox.isSelected();
+            goToTestMakerTestView(event);
+        });
+        takeFullTestButton.setOnAction(event -> {
+            TestSettingsHolder.testMode = TestMode.FULL;
+            TestSettingsHolder.repeatWronglyAnsweredQuestions = repeatWronglyAnsweredQuestions.isSelected();
+            TestSettingsHolder.shuffleQuestions = shuffleQuestionsCheckBox.isSelected();
+            goToTestMakerTestView(event);
+        });
+        cancelButton.setOnAction(event -> {
+            TestSettingsHolder.resetTestSettings();
+            goToMainMenu(event);
+        });
+        Platform.runLater(() -> {
+            if(!FullTestCompletionChecker.checkIfFullTestWasCompleted(test) ||
+                    QuestionCounter.getNumberOfQuickTestQuestions(test) == 0) {
+                takeQuickTestButton.setDisable(true);
+                takeFullTestInfo.setVisible(true);
+                takeFullTestInfo.setManaged(true);
+                takeFullTestInfoTextFlow.setVisible(true);
+                takeFullTestInfoTextFlow.setManaged(true);
+                if(QuestionCounter.getNumberOfQuickTestQuestions(test) == 0) {
+                    takeFullTestInfo.setText("Your score is too good! We couldn't find any questions for you. " +
+                            "If you want, you can reset your statistics in the Main Menu.");
+                }
+                if(!FullTestCompletionChecker.checkIfFullTestWasCompleted(test)) {
+                    takeFullTestInfo.setText("You have to take a full test at least once first!");
+                }
+            }
+            numberOfFullTestQuestions.setText(String.format("Questions: %d.",
+                    QuestionCounter.getNumberOfFullTestQuestions(test)));
+            numberOfQuickTestQuestions.setText(String.format("Questions: %d.",
+                    QuestionCounter.getNumberOfQuickTestQuestions(test)));
+        });
     }
 
     public void setTest(Test test) {
