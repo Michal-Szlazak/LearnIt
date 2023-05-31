@@ -5,15 +5,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 public class Question {
-
-
     private String question;
     private List<Answer> answers;
     private QuestionStatistics questionStatistics = new QuestionStatistics();
-    @Override
-    public String toString() {
-        return question;
-    }
+
     public void addAnswers(List<Answer> answers) {
         this.answers = answers;
     }
@@ -38,5 +33,10 @@ public class Question {
     @JsonProperty("questionStatistics")
     public void setQuestionStatistics(QuestionStatistics questionStatistics) {
         this.questionStatistics = questionStatistics;
+    }
+
+    @Override
+    public String toString() {
+        return question;
     }
 }

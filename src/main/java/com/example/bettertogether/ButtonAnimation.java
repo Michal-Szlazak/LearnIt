@@ -3,16 +3,13 @@ package com.example.bettertogether;
 import javafx.animation.*;
 import javafx.scene.control.Button;
 import javafx.scene.effect.BlurType;
-import javafx.scene.effect.ColorAdjust;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.Effect;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 public class ButtonAnimation {
 
     private static final Duration animationDuration = Duration.millis(100);
-    private static final int FadeSteps = 25;
 
     public static void setButtonAnimation(Button button) {
         addHoverTransition(button);
@@ -24,6 +21,7 @@ public class ButtonAnimation {
         DropShadow shadow = new DropShadow();
         shadow.setBlurType(BlurType.ONE_PASS_BOX);
         shadow.setColor(Color.BLACK);
+        button.setEffect(shadow);
 
         Timeline timelineDropShadow = new Timeline(
                 new KeyFrame(animationDuration,

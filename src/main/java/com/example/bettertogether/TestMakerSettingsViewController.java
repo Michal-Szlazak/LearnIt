@@ -1,5 +1,7 @@
 package com.example.bettertogether;
 
+import com.example.bettertogether.Test.Answer;
+import com.example.bettertogether.Test.Question;
 import com.example.bettertogether.Test.Test;
 import com.example.bettertogether.TestSettings.FullTestCompletionChecker;
 import com.example.bettertogether.TestSettings.QuestionCounter;
@@ -22,7 +24,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class TestMakerSettingsViewController {
-
+    private boolean isItMultipleChoice;
     private Test test;
     @FXML
     private Button cancelButton;
@@ -50,7 +52,8 @@ public class TestMakerSettingsViewController {
     private Label numberOfQuickTestQuestions;
     @FXML
     private Label numberOfFullTestQuestions;
-
+    @FXML
+    private Label choiceInfoLabel;
     public void initialize() {
         TestSettingsHolder.resetTestSettings();
         ButtonAnimation.setButtonAnimation(cancelButton);
@@ -74,12 +77,14 @@ public class TestMakerSettingsViewController {
             TestSettingsHolder.testMode = TestMode.QUICK;
             TestSettingsHolder.repeatWronglyAnsweredQuestions = repeatWronglyAnsweredQuestions.isSelected();
             TestSettingsHolder.shuffleQuestions = shuffleQuestionsCheckBox.isSelected();
+            TestSettingsHolder.isItMultipleChoice = isItMultipleChoice;
             goToTestMakerTestView(event);
         });
         takeFullTestButton.setOnAction(event -> {
             TestSettingsHolder.testMode = TestMode.FULL;
             TestSettingsHolder.repeatWronglyAnsweredQuestions = repeatWronglyAnsweredQuestions.isSelected();
             TestSettingsHolder.shuffleQuestions = shuffleQuestionsCheckBox.isSelected();
+            TestSettingsHolder.isItMultipleChoice = isItMultipleChoice;
             goToTestMakerTestView(event);
         });
         cancelButton.setOnAction(event -> {
@@ -106,6 +111,7 @@ public class TestMakerSettingsViewController {
                     QuestionCounter.getNumberOfFullTestQuestions(test)));
             numberOfQuickTestQuestions.setText(String.format("Questions: %d.",
                     QuestionCounter.getNumberOfQuickTestQuestions(test)));
+            isItMultipleChoice = checkIfTestIsMultipleChoice();
         });
     }
 
@@ -153,4 +159,21 @@ public class TestMakerSettingsViewController {
         stage.show();
     }
 
+    private boolean checkIfTestIsMultipleChoice() {
+        for(Question question : test.getQuestions()) {
+            int numOfCorrectAns = 0;
+            for(Answer answer : question.getAnswers()) {
+                if(answer.getCorrect()) {
+                    numOfCorrectAns++;
+                }
+            }
+            if(numOfCorrectAns > 1) {
+                choiceInfoLabel.setText("This is a multiple choice test. If u want to select multiple " +
+                        "questions hold ctrl and use your mouse.");
+                return true;
+            }
+        }
+        choiceInfoLabel.setText("This is a single choice test.");
+        return false;
+    }
 }

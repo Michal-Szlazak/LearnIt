@@ -1,6 +1,7 @@
 package com.example.bettertogether.Test;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSetter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,14 +20,13 @@ public class Test {
     public void addNewQuestion(Question question) {
         questions.add(question);
     }
-
     public List<Question> getQuestions() {
         return questions;
     }
     public String getTestName() {
         return testName;
     }
-    @JsonProperty("testName")
+    @JsonSetter("testName")
     public void setTestName(String testName) {
         this.testName = testName;
     }

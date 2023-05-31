@@ -62,6 +62,7 @@
                 <Label fx:id="numberOfFullTestQuestions"/>
             </VBox>
         </HBox>
+        <Label fx:id="choiceInfoLabel" alignment="CENTER"/>
         <Label id="testSettingsLabel" text="Settings"/>
         <GridPane id="settingsGridPane" alignment="CENTER" vgap="10" hgap="10">
             <Label text="Shuffle questions" GridPane.rowIndex="0" GridPane.columnIndex="0"/>

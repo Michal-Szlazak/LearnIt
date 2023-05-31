@@ -52,6 +52,8 @@ public class TestMakerTestViewController {
     private Button nextQuestionButton;
     @FXML
     private Button cancelButton;
+    @FXML
+    private Label holdCtrlLabel;
     public void initialize() {
         Random rand = new Random();
         questionNumber = 0;
@@ -72,8 +74,9 @@ public class TestMakerTestViewController {
                 nextQuestionButton.setText("Finish");
             }
             testLabel.setText(test.getTestName());
+            holdCtrlLabel.setVisible(TestSettingsHolder.isItMultipleChoice);
             loadQuestion();
-            listViewFromVBox = new ListViewFromVBox(answerVBox);
+            listViewFromVBox = new ListViewFromVBox(answerVBox, TestSettingsHolder.isItMultipleChoice);
         });
         submitButton.setOnAction(event -> {
             addUsersChoicesToUserHistory();
@@ -102,7 +105,7 @@ public class TestMakerTestViewController {
                 nextQuestionButton.setDisable(true);
                 questionNumber++;
                 loadQuestion();
-                listViewFromVBox = new ListViewFromVBox(answerVBox);
+                listViewFromVBox = new ListViewFromVBox(answerVBox, TestSettingsHolder.isItMultipleChoice);
             }
         });
     }

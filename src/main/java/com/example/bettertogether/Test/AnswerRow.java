@@ -6,9 +6,9 @@ import javafx.scene.control.TextField;
 
 public class AnswerRow {
 
-    private Label id;
-    private TextField answer;
-    private CheckBox isCorrect;
+    private final Label id;
+    private final TextField answer;
+    private final CheckBox isCorrect;
     public Label getId() {
         return id;
     }

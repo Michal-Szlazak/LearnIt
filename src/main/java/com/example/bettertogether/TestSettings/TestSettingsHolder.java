@@ -4,9 +4,11 @@ public class TestSettingsHolder {
     public static TestMode testMode = TestMode.FULL;
     public static boolean repeatWronglyAnsweredQuestions = false;
     public static boolean shuffleQuestions = false;
+    public static boolean isItMultipleChoice = false;
     public static void resetTestSettings() {
         testMode = TestMode.FULL;
         repeatWronglyAnsweredQuestions = false;
         shuffleQuestions = false;
+        isItMultipleChoice = false;
     }
 }

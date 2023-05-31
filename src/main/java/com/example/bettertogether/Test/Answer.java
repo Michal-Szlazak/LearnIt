@@ -1,26 +1,30 @@
 package com.example.bettertogether.Test;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Answer {
 
     private String id;
     private String answer;
-    private boolean isCorrect;
+    private boolean correct;
     public Answer() {}
-    public Answer(String id, String answer, boolean isCorrect) {
+    public Answer(String id, String answer, boolean correct) {
         this.id = id;
         this.answer = answer;
-        this.isCorrect = isCorrect;
+        this.correct = correct;
     }
+    @JsonGetter("id")
     public String getId() {
         return id;
     }
+    @JsonGetter("answer")
     public String getAnswer() {
         return answer;
     }
-    public boolean getIsCorrect() {
-        return isCorrect;
+    @JsonGetter("correct")
+    public boolean getCorrect() {
+        return correct;
     }
     @JsonProperty("id")
     public void setId(String id) {
@@ -31,7 +35,7 @@ public class Answer {
         this.answer = answer;
     }
     @JsonProperty("correct")
-    public void setIsCorrect(boolean correct) {
-        isCorrect = correct;
+    public void setCorrect(boolean correct) {
+        this.correct = correct;
     }
 }

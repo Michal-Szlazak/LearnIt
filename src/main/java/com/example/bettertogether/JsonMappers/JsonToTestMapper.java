@@ -2,6 +2,7 @@ package com.example.bettertogether.JsonMappers;
 
 import com.example.bettertogether.FolderPaths;
 import com.example.bettertogether.Test.Test;
+import com.example.bettertogether.UploadTest.TestToUpload;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -10,7 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class JsonToTestMapper {
-    public Test createTestFromJson(String jsonFileName) {
+    public Test createTestFromJsonFileName(String jsonFileName) {
 
         String jsonFileText = getFileText(jsonFileName);
 
@@ -19,11 +20,24 @@ public class JsonToTestMapper {
         }
 
         ObjectMapper mapper = new ObjectMapper();
+
         try {
             return mapper.readValue(jsonFileText, Test.class);
         } catch (JsonProcessingException e) {
-            throw new UnsupportedOperationException("not supported yet (occurred while mapping json to test class.");
+            throw new RuntimeException(e);
         }
+
+    }
+
+    public TestToUpload createTestFromJsonText(String jsonText) {
+        ObjectMapper mapper = new ObjectMapper();
+
+            try {
+                return mapper.readValue(jsonText, TestToUpload.class);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+
     }
 
     private String getFileText(String jsonFileName) {

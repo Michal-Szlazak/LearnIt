@@ -34,4 +34,15 @@ public class TestToJsonMapper {
             throw new RuntimeException(e);
         }
     }
+
+    public String getTestAsJson(Test test) {
+        ObjectMapper ow = new ObjectMapper();
+        String json;
+        try {
+            json = ow.writeValueAsString(test);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+        return json;
+    }
 }

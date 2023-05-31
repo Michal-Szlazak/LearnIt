@@ -30,7 +30,9 @@ public class MainMenuController {
     @FXML
     private Button createNewTestButton;
     @FXML
-    private Button downloadNewTestButton;
+    private Button browseTests;
+    @FXML
+    private Button uploadTestButton;
     @FXML
     private ListView<String> testListView;
     @FXML
@@ -50,21 +52,24 @@ public class MainMenuController {
         testLoader.load();
 
         ButtonAnimation.setButtonAnimation(createNewTestButton);
-        ButtonAnimation.setButtonAnimation(downloadNewTestButton);
+        ButtonAnimation.setButtonAnimation(browseTests);
+        ButtonAnimation.setButtonAnimation(uploadTestButton);
         ButtonAnimation.setButtonAnimation(doTestButton);
         ButtonAnimation.setButtonAnimation(editTestButton);
         ButtonAnimation.setButtonAnimation(deleteTestButton);
         ButtonAnimation.setButtonAnimation(clearStatsButton);
 
         test = new Test();
+
+        browseTests.setOnAction(this::goToBrowserView);
+        uploadTestButton.setOnAction(this::goToTestUploaderView);
         doTestButton.setOnAction(event -> {
             if(testListView.getSelectionModel().getSelectedItem() == null) {
                 return;
             }
             JsonToTestMapper mapper = new JsonToTestMapper();
-            test = mapper.createTestFromJson(
+            test = mapper.createTestFromJsonFileName(
                     testListView.getSelectionModel().getSelectedItem() + ".json");
-            System.out.println(test);
             goToTestMakerSettings(event);
         });
 
@@ -83,7 +88,7 @@ public class MainMenuController {
                 return;
             }
             JsonToTestMapper mapper = new JsonToTestMapper();
-            test = mapper.createTestFromJson(
+            test = mapper.createTestFromJsonFileName(
                     testListView.getSelectionModel().getSelectedItem() + ".json");
             TestNameBeforeEditionHolder.setTestNameBeforeEdition(testListView.getSelectionModel().getSelectedItem());
             goToTestEditorView(event);
@@ -94,7 +99,7 @@ public class MainMenuController {
                 return;
             }
             JsonToTestMapper mapperToTest = new JsonToTestMapper();
-            test = mapperToTest.createTestFromJson(
+            test = mapperToTest.createTestFromJsonFileName(
                     testListView.getSelectionModel().getSelectedItem() + ".json");
             TestStatisticsResetter.reset(test);
             TestToJsonMapper mapperToJson = new TestToJsonMapper();
@@ -162,6 +167,44 @@ public class MainMenuController {
             throw new RuntimeException(e);
         }
         ((TestEditorViewController)loader.getController()).setTestModel(test);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        width = stage.getScene().getWidth();
+        height = stage.getScene().getHeight();
+        scene = new Scene(root, width, height);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void goToTestUploaderView(ActionEvent event) {
+        double width;
+        double height;
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(
+                FolderPaths.pathToFXMLFolder + "TestUploader.fxml"));
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        width = stage.getScene().getWidth();
+        height = stage.getScene().getHeight();
+        scene = new Scene(root, width, height);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    private void goToBrowserView(ActionEvent event) {
+        double width;
+        double height;
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(
+                FolderPaths.pathToFXMLFolder + "BrowserView.fxml"));
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         width = stage.getScene().getWidth();
         height = stage.getScene().getHeight();

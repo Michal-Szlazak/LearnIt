@@ -39,7 +39,7 @@
                 <VBox fx:id="answerVBox" spacing="10"/>
             </VBox>
         </ScrollPane>
-        <Label id="holdCtrlLabel" text="Hold ctrl to select multiple questions"/>
+        <Label fx:id="holdCtrlLabel" text="Hold ctrl to select multiple questions"/>
         <HBox id="answerButtons" alignment="CENTER" spacing="10">
             <Button fx:id="submitButton" text="Submit"/>
             <Button fx:id="nextQuestionButton" text="Next"/>

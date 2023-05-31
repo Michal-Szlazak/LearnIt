@@ -144,3 +144,7 @@
 #numberOfQuickTestQuestions, #numberOfFullTestQuestions {
     -fx-text-fill: #EDDDD4;
 }
+
+#choiceInfoLabel {
+    -fx-text-fill: #7CFFC4;
+}

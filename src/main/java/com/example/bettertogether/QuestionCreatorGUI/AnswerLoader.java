@@ -21,7 +21,7 @@ public class AnswerLoader {
             AnswerRow answerRow = new AnswerRow();
             answerRow.setId(answer.getId());
             answerRow.setAnswer(answer.getAnswer());
-            answerRow.setIsCorrect(answer.getIsCorrect());
+            answerRow.setIsCorrect(answer.getCorrect());
             answerTableView.addAnswer(answerRow);
         }
     }

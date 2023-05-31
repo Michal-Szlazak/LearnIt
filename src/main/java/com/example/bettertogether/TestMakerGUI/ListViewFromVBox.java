@@ -16,9 +16,9 @@ public class ListViewFromVBox {
 
     private final VBox vBox;
 
-    public ListViewFromVBox(VBox vBox) {
+    public ListViewFromVBox(VBox vBox, boolean multipleChoice) {
         this.vBox = vBox;
-        setMouseEvents(this.vBox);
+        setMouseEvents(this.vBox, multipleChoice);
         setHoverMouseEvents(this.vBox);
     }
     private void setHoverMouseEvents(VBox vBox) {
@@ -57,17 +57,30 @@ public class ListViewFromVBox {
             });
         }
     }
-    private void setMouseEvents(VBox vBox) {
-        setSelectionMouseEvent(vBox);
+    private void setMouseEvents(VBox vBox, boolean multipleChoice) {
+        if(multipleChoice) {
+            setSelectionMouseEventMultipleChoice(vBox);
+        } else {
+            setSelectionMouseEventSingleChoice(vBox);
+        }
     }
 
-    private void setSelectionMouseEvent(VBox vBox) {
+    private void setSelectionMouseEventMultipleChoice(VBox vBox) {
         for(Node node : vBox.getChildren()) {
             HBox hBox = (HBox) node;
             hBox.onMouseClickedProperty().set(mouseEvent -> {
                 if(!mouseEvent.isControlDown()) {
                     clearSelection(vBox);
                 }
+                hBox.getStyleClass().add("selectedAnswerHBox");
+            });
+        }
+    }
+    private void setSelectionMouseEventSingleChoice(VBox vBox) {
+        for(Node node : vBox.getChildren()) {
+            HBox hBox = (HBox) node;
+            hBox.onMouseClickedProperty().set(mouseEvent -> {
+                clearSelection(vBox);
                 hBox.getStyleClass().add("selectedAnswerHBox");
             });
         }

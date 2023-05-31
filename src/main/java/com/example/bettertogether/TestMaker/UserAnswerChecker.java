@@ -18,14 +18,14 @@ public class UserAnswerChecker {
             Label idLabel = (Label) hBox.getChildren().get(0);
             char id = idLabel.getText().charAt(0);
             int idNum = id - 'A';
-            if(!question.getAnswers().get(idNum).getIsCorrect()) {
+            if(!question.getAnswers().get(idNum).getCorrect()) {
                 result = false;
             }
             selectedCorrect.add(idNum);
         }
         int id = 0;
         for(HBox hBox : listViewFromVBox.getItems()) {
-            if(question.getAnswers().get(id).getIsCorrect() && !selectedCorrect.contains(id)) {
+            if(question.getAnswers().get(id).getCorrect() && !selectedCorrect.contains(id)) {
                 result = false;
             }
             id++;
