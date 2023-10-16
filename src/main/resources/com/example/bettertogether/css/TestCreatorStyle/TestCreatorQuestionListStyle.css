@@ -5,7 +5,7 @@
     -fx-max-width: 800px;
 
 
-    -fx-background-color: white;
+    -fx-background-color: #197278;
     -fx-background-radius: 10px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
 
@@ -14,7 +14,9 @@
 #questionListGridPane > Label {
     -fx-pref-width: 1000px;
     -fx-pref-height: 50px;
-    -fx-font-size: 24px;
+    -fx-font-size: 28px;
+
+    -fx-text-fill: #7CFFC4;
 }
 
 #questionListGridPane > ListView {
@@ -22,43 +24,48 @@
     -fx-border-radius: 10px;
     -fx-border-color: black;
     -fx-padding: 5 5 5 5;
+    -fx-background-color: #283d3b;
 }
 
 #questionListGridPane > HBox > Button {
     -fx-min-width: 50px;
+    -fx-text-fill: #7CFFC4;
 
-    -fx-background-color: #B7E6E6;
+    -fx-background-color: #197278;
     -fx-background-radius: 10px;
-    -fx-border-color: black;
+    -fx-border-color: #5BB2B2;
     -fx-border-radius: 10px
 }
 
 #questionListGridPane > HBox > Button:hover {
-    -fx-background-color: #D7FFFF;
     -fx-cursor: hand;
 }
 
-#questionListGridPane > HBox > Button:pressed {
-        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,2), 2, 0, 3, 3);
+#questionListGridPane > ListView .list-cell:empty{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
 }
 
 #questionListGridPane > ListView .list-cell{
-    -fx-background-color: white;
-    -fx-background-radius: 5px;
-    -fx-padding: 5 5 2 5;
-}
-
-#questionListGridPane > ListView .list-cell > Label{
-    -fx-border-color: black;
+    -fx-border-color: #EDDDD4;
     -fx-border-radius: 5px;
     -fx-background-radius:5px;
-    -fx-background-color: white;
+    -fx-background-color: #283d3b;
     -fx-font-size: 16px;
+    -fx-text-background-color: #EDDDD4;
     -fx-max-width: 1000px;
-    -fx-padding: 0 0 0 10;
+    -fx-padding: 5 5 5 5;
+    -fx-border-insets: 5;
+    -fx-background-insets: 5;
 }
 
-#questionListGridPane > ListView .list-cell > Label:hover{
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 3, 0, 3, 3);
+#questionListGridPane > ListView .list-cell:selected{
+    -fx-background-color: #197278;
+}
+
+#questionListGridPane > ListView .list-cell:filled:hover{
+    -fx-border-radius: 5;
     -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, #5BB2B2, 5, 0.5, 0, 0);
+    -fx-background-border: 10px;
 }

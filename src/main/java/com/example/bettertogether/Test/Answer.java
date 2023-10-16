@@ -1,42 +1,41 @@
 package com.example.bettertogether.Test;
 
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Answer {
 
-    private Label id;
-    private TextField answer;
-    private CheckBox isCorrect;
-
-    public void setId(String id) {
-        this.id = new Label(id);
-    }
-
-    public void setAnswer(TextField answer) {
+    private String id;
+    private String answer;
+    private boolean correct;
+    public Answer() {}
+    public Answer(String id, String answer, boolean correct) {
+        this.id = id;
         this.answer = answer;
+        this.correct = correct;
     }
-
-    public void setIsCorrect(CheckBox isCorrect) {
-        this.isCorrect = isCorrect;
-    }
-
-    public Label getId() {
+    @JsonGetter("id")
+    public String getId() {
         return id;
     }
-
-    public TextField getAnswer() {
+    @JsonGetter("answer")
+    public String getAnswer() {
         return answer;
     }
-
-    public CheckBox getIsCorrect() {
-        return isCorrect;
+    @JsonGetter("correct")
+    public boolean getCorrect() {
+        return correct;
     }
-
-    public Answer() {
-        id = new Label();
-        answer = new TextField();
-        isCorrect = new CheckBox();
+    @JsonProperty("id")
+    public void setId(String id) {
+        this.id = id;
+    }
+    @JsonProperty("answer")
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+    @JsonProperty("correct")
+    public void setCorrect(boolean correct) {
+        this.correct = correct;
     }
 }

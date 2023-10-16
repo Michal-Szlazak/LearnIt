@@ -1,0 +1,85 @@
+#background {
+    -fx-backGround-color: #283d3b;
+}
+
+#descriptionVBox {
+    -fx-background-color: #283d3b;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #EDDDD4;
+    -fx-border-width: 1;
+    -fx-padding: 10 50 10 50;
+}
+
+#descriptionLabel {
+    -fx-font-size: 20px;
+    -fx-text-fill: #EDDDD4;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+#descriptionTextArea {
+    -fx-background-color: #283d3b;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #EDDDD4;
+    -fx-text-fill: #EDDDD4;
+}
+
+#resultsVBox {
+     -fx-background-color: #197278;
+     -fx-background-radius: 10px;
+     -fx-border-radius: 10px;
+     -fx-border-color: black;
+     -fx-max-width: 1000;
+ }
+
+ #testNameLabel {
+    -fx-background-color: #283d3b;
+    -fx-font-size: 30px;
+    -fx-text-fill: #EDDDD4;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #EDDDD4;
+    -fx-border-width: 3;
+    -fx-padding: 10 50 10 50;
+ }
+
+#scoreLabel {
+    -fx-background-color: #283d3b;
+    -fx-font-size: 22px;
+    -fx-text-fill: #EDDDD4;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-padding: 5 10 5 10;
+}
+
+#goToBrowserButton {
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+    -fx-text-fill: #7CFFC4;
+    -fx-border-color: #197278;
+    -fx-border-radius: 10;
+    -fx-border-width: 3;
+    -fx-background-radius: 10;
+    -fx-background-color: #283d3b;
+    -fx-pref-width: 300;
+    -fx-pref-height: 80;
+    -fx-border-insets: 10;
+    -fx-background-insets: 10;
+}
+
+#goToBrowserButton:hover {
+    -fx-cursor: hand;
+}
+
+.text-area:focused .content, .text-area .content {
+    -fx-background-color:  #283d3b;
+    -fx-radius-color: #283d3b;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-border-insets: 10;
+}
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      id="background"
+      fx:controller="com.example.bettertogether.TestMakerResultsViewController"
+      prefHeight="400.0" prefWidth="600.0" alignment="CENTER" spacing="20">
+
+    <stylesheets>
+        <URL value="@../css/TestMakerResultsView/TestMakerResultsViewMain.css"/>
+        <URL value="@../css/TestMakerResultsView/TestMakerResultsListViewStyle.css"/>
+        <URL value="@../css/TestMakerResultsView/scrollBarStyle.css"/>
+    </stylesheets>
+
+    <padding>
+        <Insets left="50" right="50" top="20" bottom="20"/>
+    </padding>
+
+        <Label id="resultLabel" text="Results" alignment="CENTER"/>
+    <VBox id="resultsVBox" spacing="5" alignment="CENTER">
+        <padding>
+            <Insets left="50" right="50" top="20" bottom="20"/>
+        </padding>
+
+        <Label fx:id="testNameLabel"/>
+        <Label fx:id="scoreLabel" text="Your score: 100%"/>
+        <ScrollPane id="questionsScrollPane" fitToWidth="true">
+            <VBox fx:id="questionsVBox" alignment="CENTER">
+                <padding>
+                    <Insets left="50" right="50" top="10" bottom="10"/>
+                </padding>
+            </VBox>
+        </ScrollPane>
+
+    </VBox>
+    <HBox alignment="CENTER">
+        <Button fx:id="goToMainMenuButton" text="Main Menu"/>
+        <Button fx:id="retakeButton" text="Retake"/>
+    </HBox>
+
+</VBox>

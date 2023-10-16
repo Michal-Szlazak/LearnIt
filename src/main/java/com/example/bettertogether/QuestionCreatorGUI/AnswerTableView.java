@@ -1,6 +1,6 @@
 package com.example.bettertogether.QuestionCreatorGUI;
 
-import com.example.bettertogether.Test.Answer;
+import com.example.bettertogether.Test.AnswerRow;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -11,13 +11,13 @@ import java.util.List;
 
 public class AnswerTableView{
 
-    private final TableView<Answer> tableView;
-    private final TableColumn<Answer, String> answerId;
-    private final TableColumn<Answer, String> answer;
-    private final TableColumn<Answer, CheckBox> isCorrect;
+    private final TableView<AnswerRow> tableView;
+    private final TableColumn<AnswerRow, String> answerId;
+    private final TableColumn<AnswerRow, String> answer;
+    private final TableColumn<AnswerRow, CheckBox> isCorrect;
     private char id;
 
-    public AnswerTableView(TableView<Answer> tableView) {
+    public AnswerTableView(TableView<AnswerRow> tableView) {
         this.tableView = tableView;
 
         answerId = new TableColumn<>();
@@ -27,7 +27,7 @@ public class AnswerTableView{
         answerId.setCellValueFactory(new PropertyValueFactory<>("id"));
         answerId.setText("Id");
         answer.setCellValueFactory(new PropertyValueFactory<>("answer"));
-        answer.setText("Answer");
+        answer.setText("AnswerRow");
         isCorrect.setCellValueFactory(new PropertyValueFactory<>("isCorrect"));
         isCorrect.setText("Is correct");
         this.tableView.getColumns().add(answerId);
@@ -38,7 +38,6 @@ public class AnswerTableView{
 
         this.tableView.widthProperty().addListener((obs, oldVal, newVal) -> {
             double tableWidth = (double) newVal;
-            System.out.println(tableView.getWidth() + tableView.getPrefWidth());
             answerId.setPrefWidth(tableWidth * 0.1);
             answer.setPrefWidth(tableWidth * 0.8);
             isCorrect.setPrefWidth(tableWidth * 0.1);
@@ -46,27 +45,31 @@ public class AnswerTableView{
     }
 
     public void addNewAnswer() {
-        Answer answer = new Answer();
-        answer.setId(Character.toString(id++));
-        tableView.getItems().add(answer);
+        AnswerRow answerRow = new AnswerRow();
+        answerRow.setId(Character.toString(id++));
+        tableView.getItems().add(answerRow);
+    }
+
+    public void addAnswer(AnswerRow answerRow) {
+        id++;
+        tableView.getItems().add(answerRow);
     }
 
     public void deleteAnswer() {
-        Answer answer = tableView.getSelectionModel().getSelectedItem();
-        if(answer == null) {
+        AnswerRow answerRow = tableView.getSelectionModel().getSelectedItem();
+        if(answerRow == null) {
             return;
         }
 
-        int removeIndex = tableView.getItems().indexOf(answer);
-        List<Answer> answers = tableView.getItems();
-        for(int i = removeIndex; i < answers.size(); i++) {
-            Label temp = answers.get(i).getId();
-            char id = temp.getText().charAt(0);
-            answers.get(i).setId(Character.toString(--id));
+        int removeIndex = tableView.getItems().indexOf(answerRow);
+        List<AnswerRow> answerRows = tableView.getItems();
+        for(int i = removeIndex; i < answerRows.size(); i++) {
+            String temp = answerRows.get(i).getId().getText();
+            char id = temp.charAt(0);
+            answerRows.get(i).setId(Character.toString(--id));
         }
 
-        tableView.getItems().remove(answer);
+        tableView.getItems().remove(answerRow);
         id--;
     }
-
 }

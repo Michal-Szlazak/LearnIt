@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.bettertogether.BrowserViewController"
+      id="background" alignment="CENTER" spacing="30">
+    <stylesheets>
+        <URL value="@../css/BrowserViewStyle/MainStyle.css"/>
+        <URL value="@../css/BrowserViewStyle/FiltersStyle.css"/>
+        <URL value="@../css/BrowserViewStyle/TestListStyle.css"/>
+        <URL value="@../css/BrowserViewStyle/keywordStyle.css"/>
+        <URL value="@../css/BrowserViewStyle/scrollBarStyle.css"/>
+    </stylesheets>
+    <padding>
+        <Insets top="30" bottom="30" left="50" right="50"/>
+    </padding>
+
+    <Label id="titleLabel" text="Public learn it tests"/>
+
+    <GridPane id="mainGP" hgap="20" vgap="20" alignment="CENTER">
+        <VBox id="filtersVBox" GridPane.columnIndex="0" GridPane.rowIndex="0" alignment="TOP_CENTER"
+        spacing="20" VBox.vgrow="ALWAYS">
+            <padding>
+                <Insets left="10" right="10" top="10" bottom="10"/>
+            </padding>
+            <Label id="filtersTitleLabel" text="Filters"/>
+            <ScrollPane fitToWidth="true">
+                <VBox id="filtersInnerVBox">
+                    <HBox id="userNameFilterHBox" alignment="CENTER" spacing="10">
+                        <Label id="userNameFilterLabel" text="Username: "/>
+                        <TextField fx:id="userNameFilterTextField"/>
+                    </HBox>
+                    <HBox id="testNameFilterHBox" alignment="CENTER" spacing="10">
+                        <Label id="testNameFilterLabel" text="Test name: "/>
+                        <TextField fx:id="testNameFilterTextField"/>
+                    </HBox>
+                    <VBox id="keywordsFilterVBox" alignment="CENTER" spacing="10">
+                        <padding>
+                            <Insets left="10" right="10"/>
+                        </padding>
+                        <Label id="keywordsFilterLabel" text="Keywords"/>
+                        <FlowPane fx:id="keywordsFlowPane" vgap="5" hgap="5"/>
+                        <TextField fx:id="keywordTextField"/>
+                        <Button fx:id="addKeywordButton" text="Add"/>
+                        <Label fx:id="warningKeywordLabel" text="It already exists" managed="false" visible="false"/>
+                    </VBox>
+                </VBox>
+            </ScrollPane>
+            <Button fx:id="applyFiltersButton" text="Apply"/>
+        </VBox>
+
+        <VBox id="testListVBox" GridPane.columnIndex="1" GridPane.rowIndex="0" spacing="10">
+            <padding>
+                <Insets left="20" right="20"/>
+            </padding>
+
+            <Label id="testsTitleLabel" text="Tests"/>
+            <HBox>
+                <Label id="userNameLabel" text="Username"/>
+                <Label id="testNameLabel" text="Test name"/>
+            </HBox>
+            <ListView fx:id="testsListView" />
+                <HBox id="pageNumbersHBox" alignment="CENTER">
+                    <Button fx:id="goToPreviousPageButton"/>
+                    <HBox id="pageNumbersHBox">
+                        <Label fx:id="previousPageLabel"/>
+                        <Label fx:id="currentPageLabel"/>
+                        <Label fx:id="nextPageLabel"/>
+                    </HBox>
+                    <Button fx:id="goToNextPageButton"/>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" spacing="10">
+                    <Button fx:id="viewMoreTestInfoButton" styleClass="testListButton" text="View more" disable="true"/>
+                    <Button fx:id="downloadTestButton" styleClass="testListButton" text="Download" disable="true"/>
+                </HBox>
+        </VBox>
+        <HBox GridPane.rowIndex="1" GridPane.columnIndex="1" alignment="CENTER">
+            <Button fx:id="returnButton" text="Return"/>
+        </HBox>
+    </GridPane>
+
+</VBox>
