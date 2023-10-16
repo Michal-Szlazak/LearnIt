@@ -1,0 +1,150 @@
+#background {
+    -fx-backGround-color: #283d3b;
+}
+
+#testSettingLabel {
+    -fx-background-color: #197278;
+    -fx-font-size: 30px;
+    -fx-text-fill: #EDDDD4;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: black;
+    -fx-max-width: 300px;
+    -fx-max-height: 100px;
+}
+
+#testModeLabel, #testSettingsLabel{
+    -fx-font-size: 25px;
+    -fx-text-fill: #EDDDD4;
+    -fx-font-weight: bold;
+}
+
+#testSettingsBox {
+    -fx-background-color: #197278;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: black;
+    -fx-max-width: 1000px;
+    -fx-padding: 20;
+}
+
+#cancelButton {
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+    -fx-text-fill: #7CFFC4;
+    -fx-padding: 10 50 10 50;
+    -fx-background-color: #283d3b;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #197278;
+    -fx-border-width: 3;
+    -fx-min-width: 200px;
+    -fx-min-height: 50px;
+}
+
+#cancelButton:hover {
+     -fx-cursor: hand;
+}
+
+#testModeBox {
+    -fx-pref-width: 300;
+    -fx-background-color: #283d3b;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: black;
+    -fx-border-insets: 0, 10, 0, 10;
+    -fx-background-insets: 0, 10, 0, 10;
+}
+
+#testModeBox VBox {
+    -fx-background-color: #197278;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: black;
+    -fx-border-insets: 10;
+    -fx-background-insets: 10;
+    -fx-padding: 5 5 5 5;
+    -fx-min-width: 200;
+    -fx-pref-width: 300;
+}
+
+#takeFullTestInfo {
+    -fx-pref-width: 150;
+    -fx-text-fill: #7CFFC4;
+}
+
+#quickTestLabel, #fullTestLabel {
+    -fx-font-size: 20px;
+    -fx-text-fill: #EDDDD4;
+}
+
+#quickTestInformationButton, #fullTestInformationButton {
+    -fx-background-image: url("informationIcon.png");
+    -fx-max-width: 20;
+    -fx-max-height: 20;
+    -fx-min-width: 20;
+    -fx-min-height: 20;
+    -fx-background-size: 20 20;
+    -fx-background-radius: 10;
+}
+
+#takeQuickTestButton, #takeFullTestButton {
+    -fx-padding: 1 5 1 5;
+    -fx-background-color: #197278;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #5BB2B2;
+    -fx-text-fill: #7CFFC4;
+    -fx-font-size: 12px;
+    -fx-pref-width: 150;
+    -fx-pref-height: 30;
+}
+
+#settingsGridPane {
+    -fx-background-color: #283d3b;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: black;
+
+    -fx-max-width: 1000px;
+    -fx-padding: 20;
+}
+
+#settingsGridPane Label {
+    -fx-text-fill: #7CFFC4;
+}
+
+.check-box .box {
+    -fx-background-color: #283d3b;
+    -fx-border-color: #7CFFC4;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+.check-box:selected .mark {
+    -fx-background-color: #7CFFC4;
+}
+.check-box:selected .box {
+}
+
+.button:hover {
+    -fx-cursor: hand;
+}
+
+#fullTestDescriptionText {
+    -fx-fill: #7CFFC4;
+    -fx-pref-width: 200;
+}
+
+#quickTestDescriptionText {
+    -fx-fill: #7CFFC4;
+    -fx-pref-width: 200;
+}
+
+#numberOfQuickTestQuestions, #numberOfFullTestQuestions {
+    -fx-text-fill: #EDDDD4;
+}
+
+#choiceInfoLabel {
+    -fx-text-fill: #7CFFC4;
+}

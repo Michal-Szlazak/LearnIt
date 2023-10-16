@@ -1,0 +1,81 @@
+#background {
+    -fx-background-color: #283d3b;
+}
+
+#questionLabel {
+    -fx-background-color: #197278;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #7CFFC4;
+    -fx-text-background-color: #EDDDD4;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #EDDDD4;
+    -fx-border-width: 3;
+    -fx-max-width: 300px;
+    -fx-max-height: 100px;
+}
+
+#questionTextField {
+    -fx-font-size: 18px;
+    -fx-background-radius: 10px;
+    -fx-text-fill: #7CFFC4;
+    -fx-background-color: #197278;
+    -fx-border-radius: 10px;
+    -fx-border-color: #EDDDD4;
+    -fx-border-width: 2;
+    -fx-min-width: 100px;
+    -fx-max-width: 500px;
+    -fx-max-height: 50px;
+}
+
+#cancelButton, #saveEditedQuestionButton, #addNewQuestionToTestButton {
+    -fx-padding: 10 50 10 50;
+    -fx-background-color: #283d3b;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #197278;
+    -fx-border-width: 3;
+    -min-width: 200px;
+    -min-height: 50px;
+
+    -fx-text-fill: #7CFFC4;
+}
+
+#cancelButton:hover, #saveEditedQuestionButton:hover, #addNewQuestionToTestButton:hover {
+    -fx-cursor: hand;
+}
+
+.table-view *.scroll-bar:horizontal *.increment-button,
+.table-view *.scroll-bar:horizontal *.decrement-button {
+    -fx-background-color: null;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.table-view *.scroll-bar:horizontal *.increment-arrow,
+.table-view *.scroll-bar:horizontal *.decrement-arrow {
+    -fx-background-color: null;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-shape: null;
+}
+
+.table-view *.scroll-bar:vertical *.increment-button,
+.table-view *.scroll-bar:vertical *.decrement-button {
+    -fx-background-color: null;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.table-view *.scroll-bar:vertical *.increment-arrow,
+.table-view *.scroll-bar:vertical *.decrement-arrow {
+    -fx-background-color: null;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-shape: null;
+}
