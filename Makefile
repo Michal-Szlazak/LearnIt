@@ -1,12 +1,22 @@
 DB_CONTAINER_NAME := my-mongodb
+JAR_FILE := ./app/target/BetterTogether-1.0-SNAPSHOT.jar
 
 .PHONY: run-mongo stop-mongo
 
+# Start the MongoDB Docker container and Java application
+run: run-java run-mongo
+
+build:
+	docker-compose up --build
+
+# Run your Java application
+run-java:
+	java -jar $(JAR_FILE) &
+
 # Start the MongoDB Docker container
 run-mongo:
-	docker run -d --name $(DB_CONTAINER_NAME) -p 27017:27017 mongo
+	docker-compose up
 
 # Stop the MongoDB Docker container
-stop-mongo:
-	docker stop $(DB_CONTAINER_NAME)
-	docker rm $(DB_CONTAINER_NAME)
+stop:
+	docker-compose down
