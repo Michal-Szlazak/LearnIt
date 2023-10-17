@@ -1,0 +1,150 @@
+#background {
+    -fx-background-color: #283d3b;
+}
+
+#mainScrollPane {
+    -fx-max-width: 1000;
+}
+
+#settingsLabel {
+    -fx-background-color: #197278;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #7CFFC4;
+    -fx-text-background-color: #EDDDD4;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #EDDDD4;
+    -fx-border-width: 3;
+    -fx-max-width: 300px;
+    -fx-max-height: 100px;
+    -fx-alignment: center;
+}
+
+#mainVBox {
+    -fx-background-color: #197278;
+    -fx-border-color: #EDDDD4;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+#mainVBox > VBox, ScrollPane {
+    -fx-background-color: #283d3b;
+    -fx-border-color: #EDDDD4;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 10;
+}
+
+.labelInsideMain {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #7CFFC4;
+    -fx-text-background-color: #EDDDD4;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #EDDDD4;
+    -fx-padding: 5 10 5 10;
+}
+
+TextField {
+    -fx-font-size: 16px;
+    -fx-background-radius: 10px;
+    -fx-text-fill: #7CFFC4;
+    -fx-background-color: #197278;
+    -fx-border-radius: 10px;
+    -fx-border-color: #EDDDD4;
+    -fx-min-width: 100px;
+    -fx-max-width: 500px;
+    -fx-max-height: 50px;
+}
+
+#addKeywordButton {
+    -fx-background-color: #283d3b;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #197278;
+    -min-width: 50px;
+    -min-height: 20px;
+    -fx-text-fill: #7CFFC4;
+}
+
+#buttonsHBox > Button {
+    -fx-padding: 10 50 10 50;
+    -fx-background-color: #283d3b;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #197278;
+    -fx-border-width: 3;
+    -min-width: 50px;
+    -min-height: 20px;
+    -fx-text-fill: #7CFFC4;
+}
+
+.text-area:focused .content, .text-area .content {
+    -fx-background-color:  #283d3b;
+    -fx-radius-color: #283d3b;
+}
+
+TextArea {
+    -fx-background-color: #283d3b;
+    -min-width: 50px;
+    -min-height: 20px;
+    -fx-text-fill: #7CFFC4;
+    -fx-radius-color: #283d3b;
+}
+
+Button:hover {
+    -fx-cursor: hand;
+}
+
+#keywordFlowPane {
+    -fx-border-radius: 10px;
+    -fx-border-color: #197278;
+    -fx-padding: 10 50 10 50;
+    -fx-min-height: 60;
+}
+
+#keywordFlowPane > HBox {
+    -fx-border-color: #EDDDD4;
+    -fx-border-radius: 5;
+    -fx-alignment: center;
+    -fx-padding: 2 5 2 5;
+}
+
+#keywordFlowPane > HBox > Label {
+    -fx-text-fill: #7CFFC4;
+    -fx-padding: 5 10 5 10;
+    -fx-alignment: center;
+}
+
+#keywordFlowPane > HBox > Button {
+    -fx-background-image: url("xIconRed.png");
+    -fx-max-width: 20;
+    -fx-max-height: 20;
+    -fx-min-width: 20;
+    -fx-min-height: 20;
+    -fx-background-size: 20 20;
+    -fx-background-radius: 10;
+    -fx-background-color:transparent;
+}
+
+#warningKeywordLabel {
+    -fx-text-fill: red;
+}
+
+#keywordsInfoLabel {
+    -fx-text-fill: #7CFFC4;
+}
+
+#loadingLabel {
+    -fx-background-image: url("icons8-loading-circle-96.png");
+    -fx-max-width: 20;
+    -fx-max-height: 20;
+    -fx-min-width: 20;
+    -fx-min-height: 20;
+    -fx-background-size: 20 20;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-background-color: transparent;
+}

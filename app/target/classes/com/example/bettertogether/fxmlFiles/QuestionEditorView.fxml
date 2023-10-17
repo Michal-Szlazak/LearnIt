@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      id="background"
+      fx:controller="com.example.bettertogether.QuestionEditorViewController"
+      prefHeight="400.0" prefWidth="600.0" alignment="CENTER" spacing="20">
+
+    <stylesheets>
+        <URL value="@../css/QuestionCreatorStyle/QuestionCreatorMainStyle.css"/>
+        <URL value="@../css/QuestionCreatorStyle/QuestionCreatorAnswerTableStyle.css"/>
+    </stylesheets>
+
+    <padding>
+        <Insets left="50" right="50" top="50" bottom="50"/>
+    </padding>
+
+
+    <VBox spacing="20" alignment="CENTER">
+        <Label id="questionLabel" text="Edit question" alignment="CENTER"/>
+        <TextField fx:id="questionTextField" promptText="Your question"/>
+    </VBox>
+
+    <VBox id="answersVBox" spacing="5">
+
+        <padding>
+            <Insets left="5" right="5" top="5" bottom="5"/>
+        </padding>
+
+        <TableView fx:id="tableView"/>
+        <HBox id="answerButtons" alignment="CENTER_RIGHT" spacing="10">
+            <Button fx:id="addAnswerButton" text="Add"/>
+            <Button fx:id="deleteAnswerButton" text="Delete"/>
+        </HBox>
+    </VBox>
+    <HBox id="questionHBox" alignment="CENTER" spacing="10">
+        <Button fx:id="cancelButton" text="cancel"/>
+        <Button fx:id="saveEditedQuestionButton" text="Save changes"/>
+    </HBox>
+</VBox>
