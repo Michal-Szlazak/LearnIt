@@ -34,7 +34,8 @@ public class TestRemover {
     }
 
     private static boolean deleteTestFile(String testFileName) {
-        File file = new File(FolderPaths.pathToTestFolder + testFileName);
+        File file = new File(FolderPaths.getJarDirPath() +
+                FolderPaths.pathToTestFolder + testFileName);
 
         return file.delete();
     }

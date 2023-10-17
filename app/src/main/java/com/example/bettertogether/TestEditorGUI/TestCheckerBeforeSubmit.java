@@ -30,7 +30,7 @@ public class TestCheckerBeforeSubmit {
         if(name == null || name.isEmpty()) {
             return TestInputMistakes.EMPTY_TEST_NAME;
         }
-        File testFiles = new File(FolderPaths.pathToTestFolder);
+        File testFiles = new File(FolderPaths.getJarDirPath() + FolderPaths.pathToTestFolder);
         if(testFiles.listFiles() == null) {
             return null;
         }

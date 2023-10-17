@@ -21,7 +21,8 @@ public class TestToJsonMapper {
     }
 
     private void createJsonFile(String filename, String json) {
-        File file = new File(FolderPaths.pathToTestFolder + filename + ".json");
+        File file = new File(FolderPaths.getJarDirPath() +
+                FolderPaths.pathToTestFolder + filename + ".json");
         if(file.exists()) {
             file.delete();
         }

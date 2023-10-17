@@ -254,7 +254,7 @@ public class BrowserViewController {
 
     private void saveTest(Test test) {
         System.out.println(test);
-        File files = new File(FolderPaths.pathToTestFolder);
+        File files = new File(FolderPaths.getJarDirPath() + FolderPaths.pathToTestFolder);
         if(files.listFiles() != null) {
             for(File file : files.listFiles()) {
                 if(file.getName().equals(test.getTestName() + ".json")) {

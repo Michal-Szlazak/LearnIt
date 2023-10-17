@@ -60,7 +60,9 @@ public class TestEditorViewController {
             uploadTestName();
             List<TestInputMistakes> mistakesList = TestCheckerBeforeSubmit.checkTest(test);
             if(mistakesList.isEmpty()) {
-                File oldFile = new File(FolderPaths.pathToTestFolder +
+                File oldFile = new File(
+                        FolderPaths.getJarDirPath() +
+                        FolderPaths.pathToTestFolder +
                         TestNameBeforeEditionHolder.getTestNameBeforeEdition() + ".json");
                 oldFile.delete();
                 TestToJsonMapper jsonConverter = new TestToJsonMapper();

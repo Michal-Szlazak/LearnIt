@@ -168,7 +168,8 @@ public class TestMakerTestViewController {
 
     private void updateTestStatistics() {
         TestToJsonMapper mapper = new TestToJsonMapper();
-        File oldFile = new File(FolderPaths.pathToTestFolder + test.getTestName() + ".json");
+        File oldFile = new File(FolderPaths.getJarDirPath() +
+                FolderPaths.pathToTestFolder + test.getTestName() + ".json");
         oldFile.delete();
         mapper.convertToJsonConverter(test);
     }

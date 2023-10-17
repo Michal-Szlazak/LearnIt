@@ -41,7 +41,8 @@ public class JsonToTestMapper {
     }
 
     private String getFileText(String jsonFileName) {
-        Path pathToJson = Path.of(FolderPaths.pathToTestFolder + jsonFileName);
+        Path pathToJson = Path.of(FolderPaths.getJarDirPath() +
+                FolderPaths.pathToTestFolder + jsonFileName);
         try {
             return Files.readString(pathToJson);
         } catch (IOException e) {

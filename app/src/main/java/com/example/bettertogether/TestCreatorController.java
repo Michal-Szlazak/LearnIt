@@ -69,7 +69,10 @@ public class TestCreatorController {
             }
         });
         saveChanges.setOnAction(event -> {
-            File oldFile = new File(FolderPaths.pathToTestFolder + test.getTestName() + ".json");
+            File oldFile = new File(
+                    FolderPaths.getJarDirPath() +
+                            FolderPaths.pathToTestFolder
+                     + test.getTestName() + ".json");
             oldFile.delete();
             TestToJsonMapper jsonConverter = new TestToJsonMapper();
             jsonConverter.convertToJsonConverter(test);
