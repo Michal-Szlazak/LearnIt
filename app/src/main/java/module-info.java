@@ -6,8 +6,9 @@ module com.example.bettertogether {
     requires com.fasterxml.jackson.databind;
 
     exports com.example.bettertogether;
+    exports com.example.bettertogether.UploadTest;
 
     opens com.example.bettertogether to javafx.fxml;
     opens com.example.bettertogether.DB to com.fasterxml.jackson.databind;
-    opens com.example.bettertogether.Test to com.fasterxml.jackson.databind;
+    opens com.example.bettertogether.Test to com.fasterxml.jackson.databind, javafx.base;
 }

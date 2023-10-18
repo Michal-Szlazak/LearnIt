@@ -8,7 +8,7 @@ import java.net.URL;
 public class FolderPaths {
 
 //    public static final String pathToTestFolder = "com/example/bettertogether/TestFiles/";
-    public static final String pathToTestFolder = "/classes/com/example/bettertogether/TestFiles";
+    public static final String pathToTestFolder = "/classes/com/example/bettertogether/TestFiles/";
     public static final String pathToFXMLFolder = "fxmlFiles/";
     public static final String pathToCssFiles = "/com/example/bettertogether/css/";
 
