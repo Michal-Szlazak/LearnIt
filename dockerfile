@@ -2,6 +2,8 @@ FROM openjdk:17-jdk-slim AS build
 
 COPY ./db/pom.xml ./db/mvnw ./
 COPY ./db/.mvn .mvn
+RUN ls
+RUN sed -i 's/\r$//' mvnw
 RUN ./mvnw dependency:resolve
 
 COPY ./db/src src
