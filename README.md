@@ -21,7 +21,12 @@ TestYourself is a JavaFX desktop application designed to help users create, edit
 - **Test Sharing:** Upload tests to a public database for others to download and use.
 
 ## Screenshots
-//todo
+![Screenshot of Menu](Screenshots/MainMenu.png)
+![Screenshot of Test settings](Screenshots/testSettings.png)
+![Screenshot of test](Screenshots/test.png)
+![Screenshot of window for creating test](Screenshots/addQuestion.png)
+![Screenshot of Test Browser](Screenshots/BrowseTest.png)
+
 
 ## Getting Started
 
